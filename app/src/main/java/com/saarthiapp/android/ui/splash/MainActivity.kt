@@ -1,7 +1,8 @@
-package com.saarthiapp.android
+package com.saarthiapp.android.ui.splash
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.saarthiapp.android.R
 
 class MainActivity : AppCompatActivity() {
 

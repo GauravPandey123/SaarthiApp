@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/saarthiHome">
+
+    <fragment
+        android:id="@+id/saarthiHome"
+        android:name="com.saarthiapp.android.ui.home.Home"
+        android:label="SAARTHI"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/needHelp"
+        android:name="com.saarthiapp.android.ui.home.NeedHelp"
+        android:label="Need Help"
+        tools:layout="@layout/fragment_need_help" />
+    <fragment
+        android:id="@+id/ourWork"
+        android:name="com.saarthiapp.android.ui.home.OurWork"
+        android:label="Our Work"
+        tools:layout="@layout/fragment_our_work" />
+    <fragment
+        android:id="@+id/myProfile"
+        android:name="com.saarthiapp.android.ui.home.MyProfile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_my_profile" />
+</navigation>

@@ -1,10 +1,8 @@
 package com.saarthiapp.android.di
 
-import SessionManager
 import android.app.Application
 import com.offline.android.di.AppModule
-import com.saarthiapp.android.SaarthiApplication
-import com.saarthiapp.android.di.ActivityBuildersModule
+import com.saarthiapp.android.application.SaarthiApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

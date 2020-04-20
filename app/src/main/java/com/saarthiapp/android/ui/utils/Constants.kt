@@ -16,5 +16,11 @@ class Constants {
         const val GALLERY_REQUEST_CODE = 201
         const val PERMISSIONS_REQUEST_READ_STORAGE: Int = 301
         const val CROP_IMAGE_INTENT_CODE: Int = 401
+
+        //Meow Bottom Navigation IDs here....
+        const val MEOW_HOME_BOTTOM_NAVIGATION = 0
+        const val MEOW_OUT_WORK_BOTTOM_NAVIGATION = 1
+        const val MEOW_NEED_HELP_BOTTOM_NAVIGATION = 2
+        const val MEOW_PROFILE_BOTTOM_NAVIGATION = 3
     }
 }

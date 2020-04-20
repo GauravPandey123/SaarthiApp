@@ -1,4 +1,4 @@
-package com.saarthiapp.android
+package com.saarthiapp.android.application
 
 import android.app.Activity
 import android.app.Application
