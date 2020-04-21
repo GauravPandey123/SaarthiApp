@@ -2,7 +2,6 @@ package com.saarthiapp.android.ui.activity
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -18,6 +17,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import com.google.android.gms.maps.GoogleMap
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.ActivityHomeBinding
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_HOME_BOTTOM_NAVIGATION
@@ -29,8 +29,9 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     private lateinit var actHomeBinding:ActivityHomeBinding
     private lateinit var navController: NavController
-    lateinit var redToolbar: Toolbar
-    lateinit var blueToolbar: Toolbar
+    private lateinit var homeToolbar: Toolbar
+    private lateinit var OtherToolbar: Toolbar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +39,8 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController = Navigation.findNavController(this, R.id.homeNavHostContainer)
         setBottomNavMenu()
 
-        redToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarRed).findViewById(R.id.toolbarRed)
-        blueToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarBlue).findViewById(R.id.toolbarBlue)
+        homeToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarRed).findViewById(R.id.toolbarRed)
+        OtherToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarBlue).findViewById(R.id.toolbarBlue)
         setupActionBar()
 
         // Add Listeners
@@ -47,15 +48,16 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     }
 
     private fun setupActionBar() {
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.saarthiHome, R.id.ourWork, R.id.needHelp, R.id.myProfile), actHomeBinding.mainDrawerLayout)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.saarthiHome, R.id.ourWork,
+            R.id.needHelp, R.id.myProfile), actHomeBinding.mainDrawerLayout)
 
         if (actHomeBinding.includeToolbarRed.visibility == View.VISIBLE) {
-            setSupportActionBar(redToolbar)
-            redToolbar.setupWithNavController(navController,appBarConfiguration)
+            setSupportActionBar(homeToolbar)
+            homeToolbar.setupWithNavController(navController,appBarConfiguration)
 
         } else if (actHomeBinding.includeToolbarBlue.visibility == View.VISIBLE) {
-            setSupportActionBar(blueToolbar)
-            blueToolbar.setupWithNavController(navController,appBarConfiguration)
+            setSupportActionBar(OtherToolbar)
+            OtherToolbar.setupWithNavController(navController,appBarConfiguration)
         }
     }
 
@@ -112,7 +114,9 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     override fun onBackPressed() {
         if (actHomeBinding.mainDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
-        } else {
+        } /*else if(){
+
+        }*/ else {
             super.onBackPressed()
         }
     }

@@ -9,17 +9,25 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     android:layout_height="match_parent"
     tools:context=".ui.home.Home">
 
-    <TextView
-        android:text="Home"
-        android:textStyle="normal"
-        android:textColor="@color/colorBlack"
-        android:textSize="24sp"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/clSearchVolunteerLayout"
+        layout="@layout/search_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <fragment
+        android:id="@+id/homeVolunteerMapFrag"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clSearchVolunteerLayout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
