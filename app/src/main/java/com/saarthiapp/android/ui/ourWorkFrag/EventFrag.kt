@@ -1,4 +1,4 @@
-package com.saarthiapp.android.ui.home
+package com.saarthiapp.android.ui.ourWorkFrag
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,13 +8,14 @@ import android.view.ViewGroup
 
 import com.saarthiapp.android.R
 
-class NeedHelp : Fragment() {
+class EventFrag : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_need_help, container, false)
+
+        return inflater.inflate(R.layout.fragment_event, container, false)
     }
+
 }

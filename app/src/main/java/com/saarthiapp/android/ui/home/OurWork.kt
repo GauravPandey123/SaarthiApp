@@ -5,20 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 
 import com.saarthiapp.android.R
+import com.saarthiapp.android.adapter.ourWork.OurWorkFragmentPagerAdapter
+import com.saarthiapp.android.databinding.FragmentOurWorkBinding
+import com.saarthiapp.android.ui.ourWorkFrag.CommunityFrag
+import com.saarthiapp.android.ui.ourWorkFrag.EventFrag
+import com.saarthiapp.android.ui.ourWorkFrag.FeedFrag
 
-/**
- * A simple [Fragment] subclass.
- */
 class OurWork : Fragment() {
+
+    private lateinit var fragOurWorkBinding:FragmentOurWorkBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_our_work, container, false)
+        fragOurWorkBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_our_work, container, false)
+
+        setFragmentStatePagerAdapter()
+        return fragOurWorkBinding.root
+    }
+
+    private fun setFragmentStatePagerAdapter(){
+        val adapter = OurWorkFragmentPagerAdapter(requireActivity().supportFragmentManager)
+        adapter.addFragment(FeedFrag(), "Feeds")
+        adapter.addFragment(CommunityFrag(), "Community")
+        adapter.addFragment(EventFrag(), "Events")
+        fragOurWorkBinding.vpOurWork.adapter = adapter
+        fragOurWorkBinding.tlOurWork.setupWithViewPager(fragOurWorkBinding.vpOurWork)
     }
 
 }

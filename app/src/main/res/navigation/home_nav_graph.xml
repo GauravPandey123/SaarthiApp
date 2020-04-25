@@ -11,10 +11,10 @@
         android:label="SAARTHI"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/needHelp"
-        android:name="com.saarthiapp.android.ui.home.NeedHelp"
-        android:label="Need Help"
-        tools:layout="@layout/fragment_need_help" />
+        android:id="@+id/chatHome"
+        android:name="com.saarthiapp.android.ui.home.Chat"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat_home" />
     <fragment
         android:id="@+id/ourWork"
         android:name="com.saarthiapp.android.ui.home.OurWork"

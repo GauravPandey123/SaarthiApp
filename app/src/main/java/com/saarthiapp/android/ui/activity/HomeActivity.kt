@@ -17,11 +17,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-import com.google.android.gms.maps.GoogleMap
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.ActivityHomeBinding
+import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_CHAT_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_HOME_BOTTOM_NAVIGATION
-import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_NEED_HELP_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_OUT_WORK_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_PROFILE_BOTTOM_NAVIGATION
 
@@ -49,7 +48,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     private fun setupActionBar() {
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.saarthiHome, R.id.ourWork,
-            R.id.needHelp, R.id.myProfile), actHomeBinding.mainDrawerLayout)
+            R.id.chatHome, R.id.myProfile), actHomeBinding.mainDrawerLayout)
 
         if (actHomeBinding.includeToolbarRed.visibility == View.VISIBLE) {
             setSupportActionBar(homeToolbar)
@@ -64,7 +63,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private fun setBottomNavMenu(){
         actHomeBinding.mbnBottomNav.add(MeowBottomNavigation.Model(MEOW_HOME_BOTTOM_NAVIGATION, R.drawable.ic_home))
         actHomeBinding.mbnBottomNav.add(MeowBottomNavigation.Model(MEOW_OUT_WORK_BOTTOM_NAVIGATION, R.drawable.ic_our_work))
-        actHomeBinding.mbnBottomNav.add(MeowBottomNavigation.Model(MEOW_NEED_HELP_BOTTOM_NAVIGATION, R.drawable.ic_need_help))
+        actHomeBinding.mbnBottomNav.add(MeowBottomNavigation.Model(MEOW_CHAT_BOTTOM_NAVIGATION, R.drawable.ic_chat))
         actHomeBinding.mbnBottomNav.add(MeowBottomNavigation.Model(MEOW_PROFILE_BOTTOM_NAVIGATION, R.drawable.ic_profile_user))
 
         actHomeBinding.mbnBottomNav.show(MEOW_HOME_BOTTOM_NAVIGATION, true)
@@ -73,7 +72,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             val name = when(it.id){
                 MEOW_HOME_BOTTOM_NAVIGATION -> "Home"
                 MEOW_OUT_WORK_BOTTOM_NAVIGATION -> "Our Work"
-                MEOW_NEED_HELP_BOTTOM_NAVIGATION -> "Need Help"
+                MEOW_CHAT_BOTTOM_NAVIGATION -> "Chat"
                 MEOW_PROFILE_BOTTOM_NAVIGATION -> "Profile"
                 else -> ""
             }
@@ -83,7 +82,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             when(it.id){
                 MEOW_HOME_BOTTOM_NAVIGATION -> navController.navigate(R.id.saarthiHome)
                 MEOW_OUT_WORK_BOTTOM_NAVIGATION -> navController.navigate(R.id.ourWork)
-                MEOW_NEED_HELP_BOTTOM_NAVIGATION -> navController.navigate(R.id.needHelp)
+                MEOW_CHAT_BOTTOM_NAVIGATION -> navController.navigate(R.id.chatHome)
                 MEOW_PROFILE_BOTTOM_NAVIGATION -> navController.navigate(R.id.myProfile)
             }
         }

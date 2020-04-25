@@ -9,17 +9,47 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     android:layout_height="match_parent"
     tools:context=".ui.home.OurWork">
 
-    <TextView
-        android:text="Our Work"
-        android:textStyle="normal"
-        android:textColor="@color/colorBlack"
-        android:textSize="24sp"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/clSearchVolunteerLayout"
+        layout="@layout/search_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clSearchVolunteerLayout">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tlOurWork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            android:background="#F6F6F6"
+            android:minHeight="?attr/actionBarSize"
+            app:tabGravity="fill"
+            app:tabTextColor="#adadad"
+            app:tabSelectedTextColor="@color/colorBlack"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpOurWork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tlOurWork"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

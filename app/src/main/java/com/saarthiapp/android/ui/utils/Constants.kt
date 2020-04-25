@@ -20,7 +20,7 @@ class Constants {
         //Meow Bottom Navigation IDs here....
         const val MEOW_HOME_BOTTOM_NAVIGATION = 0
         const val MEOW_OUT_WORK_BOTTOM_NAVIGATION = 1
-        const val MEOW_NEED_HELP_BOTTOM_NAVIGATION = 2
+        const val MEOW_CHAT_BOTTOM_NAVIGATION = 2
         const val MEOW_PROFILE_BOTTOM_NAVIGATION = 3
     }
 }
