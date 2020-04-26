@@ -24,5 +24,14 @@
         android:id="@+id/myProfile"
         android:name="com.saarthiapp.android.ui.home.MyProfile"
         android:label="Profile"
-        tools:layout="@layout/fragment_my_profile" />
+        tools:layout="@layout/fragment_my_profile" >
+        <action
+            android:id="@+id/action_myProfile_to_editProfileFrag"
+            app:destination="@id/editProfileFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFrag"
+        android:name="com.saarthiapp.android.ui.home.EditProfileFrag"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile"/>
 </navigation>

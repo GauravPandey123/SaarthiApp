@@ -8,14 +8,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.Navigation
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.ActivityHomeBinding
@@ -30,7 +29,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private lateinit var navController: NavController
     private lateinit var homeToolbar: Toolbar
     private lateinit var OtherToolbar: Toolbar
-
+    private lateinit var ProfileToolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +39,8 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         homeToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarRed).findViewById(R.id.toolbarRed)
         OtherToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarBlue).findViewById(R.id.toolbarBlue)
+        ProfileToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarProfile).findViewById(R.id.toolbarProfile)
+
         setupActionBar()
 
         // Add Listeners
@@ -49,6 +50,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private fun setupActionBar() {
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.saarthiHome, R.id.ourWork,
             R.id.chatHome, R.id.myProfile), actHomeBinding.mainDrawerLayout)
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
 
         if (actHomeBinding.includeToolbarRed.visibility == View.VISIBLE) {
             setSupportActionBar(homeToolbar)
@@ -57,6 +59,10 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         } else if (actHomeBinding.includeToolbarBlue.visibility == View.VISIBLE) {
             setSupportActionBar(OtherToolbar)
             OtherToolbar.setupWithNavController(navController,appBarConfiguration)
+
+        }else if (actHomeBinding.includeToolbarProfile.visibility == View.VISIBLE) {
+            setSupportActionBar(ProfileToolbar)
+            ProfileToolbar.setupWithNavController(navController,appBarConfiguration)
         }
     }
 
@@ -101,13 +107,25 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         if (destination.id == R.id.saarthiHome) {
             actHomeBinding.includeToolbarBlue.visibility = View.GONE
+            actHomeBinding.includeToolbarProfile.visibility = View.GONE
             actHomeBinding.includeToolbarRed.visibility = View.VISIBLE
+        }else  if (destination.id == R.id.myProfile) {
+            actHomeBinding.includeToolbarProfile.visibility = View.VISIBLE
+//            actHomeBinding.includeToolbarProfile.background.alpha = 0
+            actHomeBinding.includeToolbarBlue.visibility = View.GONE
+            actHomeBinding.includeToolbarRed.visibility = View.GONE
         } else {
             actHomeBinding.includeToolbarBlue.visibility = View.VISIBLE
             actHomeBinding.includeToolbarRed.visibility = View.GONE
+            actHomeBinding.includeToolbarProfile.visibility = View.GONE
         }
 
         setupActionBar()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        navController.navigateUp()
+        return super.onSupportNavigateUp()
     }
 
     override fun onBackPressed() {
