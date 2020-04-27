@@ -6,4 +6,9 @@
     <string name="strSearchVolunteer">Search for Volunteers</string>
     <string name="title_activity_maps">Map</string>
     <string name="strUpdate">Update</string>
+    <string name="strEmail">Email</string>
+    <string name="strDontSignInText">Don’t have an account? Sign Up</string>
+    <string name="strAcceptingTermServices">By Signing in, you agreed with our \nTerms of Services.</string>
+    <string name="strAlreadyAccountSignIn">Already have an account? Sign In</string>
+    <string name="strSignUpTermsText">By Signing Up, you agreed with our \nTerms of Services.</string>
 </resources>

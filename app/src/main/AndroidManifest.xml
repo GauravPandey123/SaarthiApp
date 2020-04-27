@@ -30,12 +30,12 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".ui.activity.AuthActivity" />
-        <activity android:name=".ui.splash.MainActivity" />
-        <activity android:name=".ui.activity.HomeActivity">
+        <activity android:name=".ui.auth.AuthActivity" />
+        <activity android:name=".ui.activity.HomeActivity" />
+
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

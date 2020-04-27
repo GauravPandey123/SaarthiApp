@@ -9,17 +9,29 @@
         android:id="@+id/saarthiHome"
         android:name="com.saarthiapp.android.ui.home.Home"
         android:label="SAARTHI"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_saarthiHome_to_searchVolunteerFrag"
+            app:destination="@id/searchVolunteerFrag" />
+    </fragment>
     <fragment
         android:id="@+id/chatHome"
         android:name="com.saarthiapp.android.ui.home.Chat"
         android:label="Chat"
-        tools:layout="@layout/fragment_chat_home" />
+        tools:layout="@layout/fragment_chat_home" >
+        <action
+            android:id="@+id/action_chatHome_to_searchVolunteerFrag"
+            app:destination="@id/searchVolunteerFrag" />
+    </fragment>
     <fragment
         android:id="@+id/ourWork"
         android:name="com.saarthiapp.android.ui.home.OurWork"
         android:label="Our Work"
-        tools:layout="@layout/fragment_our_work" />
+        tools:layout="@layout/fragment_our_work" >
+        <action
+            android:id="@+id/action_ourWork_to_searchVolunteerFrag"
+            app:destination="@id/searchVolunteerFrag" />
+    </fragment>
     <fragment
         android:id="@+id/myProfile"
         android:name="com.saarthiapp.android.ui.home.MyProfile"
@@ -34,4 +46,9 @@
         android:name="com.saarthiapp.android.ui.home.EditProfileFrag"
         android:label="Edit Profile"
         tools:layout="@layout/fragment_edit_profile"/>
+    <fragment
+        android:id="@+id/searchVolunteerFrag"
+        android:name="com.saarthiapp.android.ui.home.SearchVolunteerFrag"
+        android:label="Search Volunteer"
+        tools:layout="@layout/fragment_search_volunteer"/>
 </navigation>

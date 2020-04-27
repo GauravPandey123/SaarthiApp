@@ -10,7 +10,7 @@
         tools:context=".ui.home.Chat">
 
         <TextView
-            android:text="Need Help"
+            android:text="Chat"
             android:textStyle="normal"
             android:textColor="@color/colorBlack"
             android:textSize="24sp"

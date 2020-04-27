@@ -1,6 +1,6 @@
 package com.saarthiapp.android.di
 
-import com.saarthiapp.android.ui.activity.AuthActivity
+import com.saarthiapp.android.ui.auth.AuthActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

@@ -18,6 +18,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResultCallback
@@ -33,12 +35,15 @@ import com.saarthiapp.android.databinding.FragmentHomeBinding
 import com.saarthiapp.android.ui.home.geofenceServices.GeofenceTransitionServices
 
 class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
-    GoogleApiClient.OnConnectionFailedListener, LocationListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener,
-    ResultCallback<Status> {
+    GoogleApiClient.OnConnectionFailedListener, LocationListener,
+    GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener,
+    ResultCallback<Status>, View.OnClickListener {
+
     private lateinit var mGoogleMap: GoogleMap
     private lateinit var fragHomeBinding:FragmentHomeBinding
     private lateinit var mGoogleApiClient:GoogleApiClient
     private lateinit var locationRequest:LocationRequest
+    private lateinit var navController:NavController
 
     companion object{
         const val MY_PERMISSIONS_REQUEST_FINE_LOCATION = 111
@@ -55,8 +60,19 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navController = Navigation.findNavController(view)
         activity?.let {
             (childFragmentManager.findFragmentById(R.id.homeVolunteerMapFrag) as SupportMapFragment).getMapAsync(this)
+        }
+
+        fragHomeBinding.clSearchVolunteerLayout.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View?) {
+        when(view){
+            fragHomeBinding.clSearchVolunteerLayout -> {
+                navController.navigate(R.id.action_saarthiHome_to_searchVolunteerFrag)
+            }
         }
     }
 
@@ -96,7 +112,7 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
             .addOnConnectionFailedListener(this)
             .build()
         mGoogleApiClient.connect()
-
+/*
         mMap.clear() //clear old markers
         val googlePlex = CameraPosition.builder()
             .target(LatLng(37.4219999, -122.0862462))
@@ -121,7 +137,7 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
             MarkerOptions()
                 .position(LatLng(37.3092293, -122.1136845))
                 .title("Captain America")
-        )
+        )*/
     }
 
     override fun onConnected(p0: Bundle?) {
@@ -254,6 +270,10 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
         if(geofencePendingIntent != null){
             return geofencePendingIntent!!
         }
+
+       /* activity?.let {
+
+        }*/
 
         val pendingIntent = Intent(requireActivity(), GeofenceTransitionServices::class.java)
         return PendingIntent.getService(requireContext(), 101, pendingIntent, PendingIntent.FLAG_UPDATE_CURRENT)

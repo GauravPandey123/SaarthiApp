@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.auth.frag.SignUpFrag">
+
+        <TextView
+            android:text="sign up"
+            android:textAllCaps="true"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/top20LoginGuidline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top20LoginGuidline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.14"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left10LoginGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right90LoginGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilFullname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Full Name"
+            app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
+            app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/top20LoginGuidline">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:background="@drawable/edit_field_bg"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:hint="Mobile"
+            app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
+            app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/tilFullname">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:background="@drawable/edit_field_bg"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:hint="@string/strEmail"
+            app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
+            app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/tilMobile"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edit_field_bg"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:hint="Password"
+            app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
+            app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#808080">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:background="@drawable/edit_field_bg"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignUp"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:text="Sign Up"
+            app:backgroundTint="@color/buttonColor"
+            android:textAllCaps="false"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
+            app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            android:background="@drawable/button_bg"
+            app:layout_constraintTop_toBottomOf="@+id/tilPassword"/>
+
+        <TextView
+            android:id="@+id/tvBySigningTerms"
+            android:text="@string/strSignUpTermsText"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:padding="15dp"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColorLink="@color/colorBlack"
+            app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignUp"/>
+
+        <TextView
+            android:id="@+id/tvdontAccountSignUp"
+            android:text="@string/strAlreadyAccountSignIn"
+            android:textSize="16sp"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColorLink="@color/buttonColor"
+            app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
+            app:layout_constraintBottom_toTopOf="@+id/top100LoginGuidline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top100LoginGuidline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.96"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

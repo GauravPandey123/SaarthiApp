@@ -31,6 +31,8 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private lateinit var OtherToolbar: Toolbar
     private lateinit var ProfileToolbar: Toolbar
 
+    private var currentBottomMenuID:Int ?= null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         actHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
@@ -86,10 +88,23 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         actHomeBinding.mbnBottomNav.setOnClickMenuListener {
             when(it.id){
-                MEOW_HOME_BOTTOM_NAVIGATION -> navController.navigate(R.id.saarthiHome)
-                MEOW_OUT_WORK_BOTTOM_NAVIGATION -> navController.navigate(R.id.ourWork)
-                MEOW_CHAT_BOTTOM_NAVIGATION -> navController.navigate(R.id.chatHome)
-                MEOW_PROFILE_BOTTOM_NAVIGATION -> navController.navigate(R.id.myProfile)
+                MEOW_HOME_BOTTOM_NAVIGATION -> {
+                    navController.navigate(R.id.saarthiHome)
+                    currentBottomMenuID = MEOW_HOME_BOTTOM_NAVIGATION
+                }
+                MEOW_OUT_WORK_BOTTOM_NAVIGATION -> {
+                    navController.navigate(R.id.ourWork)
+                    currentBottomMenuID = MEOW_OUT_WORK_BOTTOM_NAVIGATION
+                }
+
+                MEOW_CHAT_BOTTOM_NAVIGATION -> {
+                    navController.navigate(R.id.chatHome)
+                    currentBottomMenuID = MEOW_CHAT_BOTTOM_NAVIGATION
+                }
+                MEOW_PROFILE_BOTTOM_NAVIGATION -> {
+                    navController.navigate(R.id.myProfile)
+                    currentBottomMenuID = MEOW_PROFILE_BOTTOM_NAVIGATION
+                }
             }
         }
     }
@@ -109,15 +124,27 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             actHomeBinding.includeToolbarBlue.visibility = View.GONE
             actHomeBinding.includeToolbarProfile.visibility = View.GONE
             actHomeBinding.includeToolbarRed.visibility = View.VISIBLE
+            actHomeBinding.mbnBottomNav.visibility = View.VISIBLE
         }else  if (destination.id == R.id.myProfile) {
             actHomeBinding.includeToolbarProfile.visibility = View.VISIBLE
-//            actHomeBinding.includeToolbarProfile.background.alpha = 0
             actHomeBinding.includeToolbarBlue.visibility = View.GONE
             actHomeBinding.includeToolbarRed.visibility = View.GONE
+            actHomeBinding.mbnBottomNav.visibility = View.VISIBLE
+        }else  if (destination.id == R.id.searchVolunteerFrag) {
+            actHomeBinding.includeToolbarProfile.visibility = View.GONE
+            actHomeBinding.includeToolbarBlue.visibility = View.GONE
+            actHomeBinding.includeToolbarRed.visibility = View.GONE
+            actHomeBinding.mbnBottomNav.visibility = View.GONE
+        }else  if (destination.id == R.id.editProfileFrag) {
+            actHomeBinding.includeToolbarProfile.visibility = View.VISIBLE
+            actHomeBinding.includeToolbarBlue.visibility = View.GONE
+            actHomeBinding.includeToolbarRed.visibility = View.GONE
+            actHomeBinding.mbnBottomNav.visibility = View.GONE
         } else {
             actHomeBinding.includeToolbarBlue.visibility = View.VISIBLE
             actHomeBinding.includeToolbarRed.visibility = View.GONE
             actHomeBinding.includeToolbarProfile.visibility = View.GONE
+            actHomeBinding.mbnBottomNav.visibility = View.VISIBLE
         }
 
         setupActionBar()
@@ -131,9 +158,18 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     override fun onBackPressed() {
         if (actHomeBinding.mainDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
-        } /*else if(){
-
-        }*/ else {
+        } else if(currentBottomMenuID == MEOW_HOME_BOTTOM_NAVIGATION){
+            finishAffinity()
+        }else if(currentBottomMenuID == MEOW_CHAT_BOTTOM_NAVIGATION){
+            navController.popBackStack(R.id.saarthiHome, false)
+            actHomeBinding.mbnBottomNav.show(MEOW_HOME_BOTTOM_NAVIGATION, true)
+        }else if(currentBottomMenuID == MEOW_PROFILE_BOTTOM_NAVIGATION){
+            actHomeBinding.mbnBottomNav.show(MEOW_HOME_BOTTOM_NAVIGATION, true)
+            navController.popBackStack(R.id.saarthiHome, false)
+        }else if(currentBottomMenuID == MEOW_OUT_WORK_BOTTOM_NAVIGATION){
+            actHomeBinding.mbnBottomNav.show(MEOW_HOME_BOTTOM_NAVIGATION, true)
+            navController.popBackStack(R.id.saarthiHome, false)
+        } else {
             super.onBackPressed()
         }
     }
