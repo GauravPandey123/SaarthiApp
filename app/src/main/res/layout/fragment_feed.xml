@@ -1,25 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:background="#F6F6F6">
 
-        <TextView
-            android:text="Saarthi Feeds"
-            android:textStyle="normal"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftFeedGuideline"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03"/>
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightFeedGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.97"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toRightOf="@+id/leftFeedGuideline"
+            app:layout_constraintRight_toLeftOf="@+id/rightFeedGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvPostFeedHere"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:cardCornerRadius="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="15dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite">
+
+                        <TextView
+                            android:id="@+id/tvPostFeeds"
+                            android:text="Post your story in Feeds"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imgFeedUser"
+                            android:src="@drawable/profile_image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="5dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPostFeeds"/>
+
+                        <TextView
+                            android:text="What’s happening ?"
+                            android:textSize="24sp"
+                            android:layout_marginStart="12dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintLeft_toRightOf="@+id/imgFeedUser"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPostFeeds"
+                            app:layout_constraintTop_toTopOf="@+id/imgFeedUser"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgFeedUser"/>
+
+                       <com.google.android.material.textfield.TextInputLayout
+                           android:id="@+id/tilWriteFeedPost"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="8dp"
+                           android:layout_marginEnd="8dp"
+                           android:layout_marginTop="10dp"
+                           android:hint="Write here...."
+                           app:layout_constraintLeft_toLeftOf="parent"
+                           app:layout_constraintRight_toLeftOf="@+id/imgAddPostImage"
+                           app:layout_constraintTop_toBottomOf="@+id/imgFeedUser">
+
+                           <com.google.android.material.textfield.TextInputEditText
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:backgroundTint="#f6f6f6"
+                               android:background="@null"/>
+                       </com.google.android.material.textfield.TextInputLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/imgAddPostImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/ic_add_image"
+                            android:background="@drawable/add_post_image_bg"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/tilWriteFeedPost"
+                            app:layout_constraintTop_toBottomOf="@+id/imgFeedUser"
+                            app:layout_constraintTop_toTopOf="@+id/tilWriteFeedPost"
+                            app:layout_constraintBottom_toBottomOf="@+id/tilWriteFeedPost"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnPostFeed"
+                            android:textColor="@color/colorWhite"
+                            android:text="Post"
+                            android:textSize="16sp"
+                            android:textAllCaps="false"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_bg"
+                            app:rippleColor="@color/buttonColor"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tilWriteFeedPost"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="12dp"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/cvPostFeedHere">
+
+                   <TextView
+                       android:id="@+id/tvStoryVolunteer"
+                       android:text="Stories from our Volunteers : "
+                       android:textSize="17sp"
+                       android:layout_marginTop="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent"
+                       app:layout_constraintTop_toTopOf="parent"/>
+
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/recViewFeedPost"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       app:layout_constraintLeft_toLeftOf="parent"
+                       app:layout_constraintRight_toRightOf="parent"
+                       app:layout_constraintTop_toBottomOf="@+id/tvStoryVolunteer"/>
+               </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

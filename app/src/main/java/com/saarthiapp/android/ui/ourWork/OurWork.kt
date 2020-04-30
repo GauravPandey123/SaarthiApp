@@ -1,4 +1,4 @@
-package com.saarthiapp.android.ui.home
+package com.saarthiapp.android.ui.ourWork
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,9 +12,9 @@ import androidx.navigation.Navigation
 import com.saarthiapp.android.R
 import com.saarthiapp.android.adapter.ourWork.OurWorkFragmentPagerAdapter
 import com.saarthiapp.android.databinding.FragmentOurWorkBinding
-import com.saarthiapp.android.ui.ourWorkFrag.CommunityFrag
-import com.saarthiapp.android.ui.ourWorkFrag.EventFrag
-import com.saarthiapp.android.ui.ourWorkFrag.FeedFrag
+import com.saarthiapp.android.ui.ourWork.ourWorkFrag.CommunityFrag
+import com.saarthiapp.android.ui.ourWork.ourWorkFrag.EventFrag
+import com.saarthiapp.android.ui.ourWork.ourWorkFrag.FeedFrag
 
 class OurWork : Fragment(), View.OnClickListener {
 

@@ -10,12 +10,15 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -75,6 +78,29 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
             }
         }
     }
+
+    // Convert a view to bitmap
+    fun createDrawableFromView(
+        context: Context,
+        view: View
+    ): Bitmap? {
+        val displayMetrics = DisplayMetrics()
+        requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
+        view.layoutParams =
+            ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        view.measure(displayMetrics.widthPixels, displayMetrics.heightPixels)
+        view.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels)
+        view.buildDrawingCache()
+        val bitmap = Bitmap.createBitmap(
+            view.measuredWidth,
+            view.measuredHeight,
+            Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+        return bitmap
+    }
+
 
     private fun bitmapDescriptorFromVector(
         context: Context,
@@ -172,8 +198,12 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
     override fun onLocationChanged(location: Location?) {
         if(location != null){
             val latLng = LatLng(location.latitude, location.longitude)
-            val mCamera = CameraUpdateFactory.newLatLngZoom(latLng, 16f)
+            val mCamera = CameraUpdateFactory.newLatLngZoom(latLng, 15f)
             mGoogleMap.animateCamera(mCamera)
+
+
+
+
 
             val markerOptions = MarkerOptions()
             markerOptions.apply {
@@ -187,8 +217,39 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
                 mGoogleMap.clear()
             }
 
-           mMarker =  mGoogleMap.addMarker(markerOptions)
-            val geofence = createGeoFence(mMarker!!.position, 500f)
+            val marker: View = (requireActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(
+                R.layout.custom_marker_layout, null)
+            val numTxt: TextView = marker.findViewById<View>(R.id.tvPostImageUsername) as TextView
+            numTxt.setText("Pankaj Mangal")
+
+            val latLng1 = LatLng(29.386634, 75.342927)
+            val latLng2 = LatLng(29.387850, 75.341318)
+            val latLng3 = LatLng(29.386308, 75.344930)
+
+
+            mMarker = mGoogleMap.addMarker(
+                MarkerOptions()
+                    .position(latLng)
+                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireContext(), marker)))
+            )
+
+            mMarker = mGoogleMap.addMarker(
+                MarkerOptions()
+                    .position(latLng1)
+                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireContext(), marker)))
+            )
+            mMarker = mGoogleMap.addMarker(
+                MarkerOptions()
+                    .position(latLng2)
+                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireContext(), marker)))
+            )
+            mMarker = mGoogleMap.addMarker(
+                MarkerOptions()
+                    .position(latLng3)
+                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireContext(), marker)))
+            )
+//            mMarker =  mGoogleMap.addMarker(markerOptions)
+            val geofence = createGeoFence(mMarker!!.position, 1500f)
             val geoFenceRequest = GeofencingRequest.Builder()
                 .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
                 .addGeofence(geofence)
@@ -292,9 +353,10 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
         val circleOptions = CircleOptions()
                 circleOptions.apply {
                     center(mMarker?.position)
+                    strokeWidth(4f)
                     strokeColor(Color.parseColor("#ff0000"))
                     fillColor(Color.parseColor("#22adadad"))
-                    radius(300.0)
+                    radius(1500.0)
                 }
         geofenceLimits = mGoogleMap.addCircle(circleOptions)
     }

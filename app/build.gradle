@@ -59,8 +59,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // -- Retrofit2
     def retrofit2_version = "2.6.0"
+    def OkkHttpVersion = "4.2.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+    implementation "com.squareup.okhttp3:okhttp:$OkkHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$OkkHttpVersion"
 
     // -- Lifecycle Components (ViewModel, LiveData and ReactiveStreams)
     def lifecycle_version = "2.3.0-alpha01"
@@ -133,12 +136,28 @@ dependencies {
 
     //Google play services...
     def google_play_services = "17.0.0"
-    def google_service_version = "11.2.0"
-//    implementation "com.google.android.gms:play-services:$google_service_version"
     implementation "com.google.android.gms:play-services-maps:$google_play_services"
     implementation "com.google.android.gms:play-services-location:$google_play_services"
 
     //Multidex
     def multidex_version = "1.0.3"
     implementation "com.android.support:multidex:$multidex_version"
+
+    def circular_imageview_version = "3.1.0"
+    implementation "de.hdodenhof:circleimageview:$circular_imageview_version"
+
+    def exo_player_version = "2.10.5"
+    implementation "com.google.android.exoplayer:exoplayer-core:$exo_player_version"
+    implementation "com.google.android.exoplayer:exoplayer:$exo_player_version"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$exo_player_version"
+    implementation "com.google.android.exoplayer:exoplayer-dash:$exo_player_version"
+
+    //lottie animation library...
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    //Image Loader library......
+    def GlideVersion = "4.11.0"
+    implementation "com.github.bumptech.glide:glide:$GlideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$GlideVersion"
 }
