@@ -1,5 +1,7 @@
 package com.saarthiapp.android.ui.auth.frag
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -16,8 +18,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
 
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.FragmentSignInBinding
@@ -27,6 +33,10 @@ class SignInFrag : Fragment() {
     private lateinit var fragmentSignInBinding: FragmentSignInBinding
     private val startSpanText = 23
     private val startTermsText = 36
+
+    companion object{
+        const val MY_PERMISSIONS_REQUEST_FINE_LOCATION = 111
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,6 +89,19 @@ class SignInFrag : Fragment() {
         ssTermsText.setSpan(spanTermsCondition, startTermsText, ssTermsText.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
         fragmentSignInBinding.tvBySigningTerms.movementMethod = LinkMovementMethod.getInstance()
         fragmentSignInBinding.tvBySigningTerms.text = ssTermsText
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if (ContextCompat.checkSelfPermission(requireActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), // Activity
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                MY_PERMISSIONS_REQUEST_FINE_LOCATION);
+        }
     }
 
 }

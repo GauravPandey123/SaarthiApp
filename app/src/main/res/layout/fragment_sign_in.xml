@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:hint="@string/strEmail"
+            android:background="@drawable/edit_field_bg"
             app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
             app:layout_constraintTop_toBottomOf="@+id/top20LoginGuidline"
@@ -57,8 +58,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:padding="16dp"
                 android:text="pankaj.adsandurl@gmail.com"
-                android:background="@drawable/edit_field_bg"/>
+                android:background="@null"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,6 +72,8 @@
             android:hint="Password"
             app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
+            android:background="@null"
+            android:scrollIndicators="none"
             app:layout_constraintTop_toBottomOf="@+id/tilEmail"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="#808080">
@@ -79,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:padding="16dp"
                 android:background="@drawable/edit_field_bg"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -93,12 +98,11 @@
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
             app:layout_constraintTop_toBottomOf="@+id/tilPassword"/>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSignIn"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:text="Sign In"
-            app:backgroundTint="@color/buttonColor"
             android:textAllCaps="false"
             android:layout_marginTop="40dp"
             android:textColor="@color/colorWhite"

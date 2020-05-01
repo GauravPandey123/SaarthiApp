@@ -45,7 +45,7 @@
             android:id="@+id/tilFullname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:hint="Full Name"
             app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
@@ -56,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
+                android:padding="16dp"
                 android:background="@drawable/edit_field_bg"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +65,7 @@
             android:id="@+id/tilMobile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:hint="Mobile"
             app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
@@ -75,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:padding="16dp"
                 android:background="@drawable/edit_field_bg"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -83,7 +85,7 @@
             android:id="@+id/tilEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/strEmail"
             app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
@@ -95,6 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:padding="16dp"
                 android:background="@drawable/edit_field_bg"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -103,7 +106,7 @@
             android:id="@+id/tilPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:hint="Password"
             app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
@@ -116,16 +119,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:padding="16dp"
                 android:background="@drawable/edit_field_bg"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSignUp"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:text="Sign Up"
-            app:backgroundTint="@color/buttonColor"
             android:textAllCaps="false"
             android:layout_marginTop="40dp"
             android:textColor="@color/colorWhite"
