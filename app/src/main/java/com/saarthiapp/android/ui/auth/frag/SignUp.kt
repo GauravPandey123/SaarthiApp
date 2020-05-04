@@ -24,7 +24,7 @@ import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.FragmentSignUpBinding
 import com.saarthiapp.android.ui.activity.HomeActivity
 
-class SignUpFrag : Fragment(), View.OnClickListener {
+class SignUp : Fragment(), View.OnClickListener {
 
     private lateinit var fragmentSignUpBinding: FragmentSignUpBinding
     private val startSpanText = 25

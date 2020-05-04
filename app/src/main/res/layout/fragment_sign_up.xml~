@@ -40,20 +40,20 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05"/>
+            app:layout_constraintGuide_percent="0.03"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/right97LoginGuidline"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95"/>
+            app:layout_constraintGuide_percent="0.97"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilFullname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:hint="Full Name"
             app:layout_constraintLeft_toRightOf="@+id/left3LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right97LoginGuidline"
@@ -73,7 +73,7 @@
             android:id="@+id/tilMobile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:hint="Mobile"
             app:layout_constraintLeft_toRightOf="@+id/left3LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right97LoginGuidline"
@@ -93,7 +93,7 @@
             android:id="@+id/tilEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/strEmail"
             app:layout_constraintLeft_toRightOf="@+id/left3LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right97LoginGuidline"
@@ -114,7 +114,7 @@
             android:id="@+id/tilPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:hint="Password"
             app:layout_constraintLeft_toRightOf="@+id/left3LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right97LoginGuidline"
@@ -138,7 +138,7 @@
             android:layout_height="55dp"
             android:text="Sign Up"
             android:textAllCaps="false"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="30dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintLeft_toRightOf="@+id/left3LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right97LoginGuidline"
@@ -150,7 +150,7 @@
             android:text="@string/strSignUpTermsText"
             android:textSize="16sp"
             android:layout_marginTop="5dp"
-            android:padding="14dp"
+            android:padding="15dp"
             android:layout_width="0dp"
             android:gravity="center"
             android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
         <TextView
             android:id="@+id/tvdontAccountSignUp"
             android:text="@string/strAlreadyAccountSignIn"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:layout_width="0dp"
             android:gravity="center"
             android:layout_height="wrap_content"

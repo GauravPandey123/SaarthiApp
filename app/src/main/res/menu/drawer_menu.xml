@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuHome"
+        android:title="@string/strHome"
+        android:orderInCategory="100"
+        />
+
+    <item android:id="@+id/menuRequests"
+        android:title="@string/strRequest"
+        android:orderInCategory="200"
+        />
+
+    <item android:id="@+id/menuMyCommunities"
+        android:title="@string/strCommunity"
+        android:orderInCategory="300"
+        />
+
+    <item android:id="@+id/menuMyEvent"
+        android:title="@string/strMyEvents"
+        android:orderInCategory="400"
+        />
+
+    <item android:id="@+id/menuMyNotification"
+        android:title="@string/strNotification"
+        android:orderInCategory="500"
+        />
+
+    <item android:id="@+id/menuDonate"
+        android:title="@string/strDonate"
+        android:orderInCategory="600"
+        />
+    <item android:id="@+id/menuReportProblem"
+        android:title="@string/strReportProblem"
+        android:orderInCategory="700"
+        />
+
+    <item android:id="@+id/menuFeedback"
+        android:title="@string/strFeedback"
+        android:orderInCategory="800"
+        />
+
+    <item android:id="@+id/menuRateApp"
+        android:title="@string/strRateApp"
+        android:orderInCategory="900"
+        />
+
+    <item android:id="@+id/menuLogout"
+        android:title="@string/strLogout"
+        android:orderInCategory="1000"
+        />
+</menu>

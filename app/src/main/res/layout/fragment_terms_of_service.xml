@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.auth.frag.TermsOfService">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/left10ForgotGuidline"
+            app:layout_constraintRight_toLeftOf="@+id/right90ForgotGuidline"
+            app:layout_constraintBottom_toTopOf="@+id/btnAgreePolicy">
+
+            <TextView
+                android:text="This privacy policy details how Saarthi Foundation respects privacy when collecting the user’s personal information. This Privacy Policy explains what personal information we, Saarthi Foundation, use. \n\nThe application ‘Saarthi’ is owned and operated by Ads and Url, a private limited company in Delhi, India. Henceforth, this service is provided by Ads and Url at no cost and is intended for use as is. The app is used to inform visitors regarding our policies with the collection, use, and disclosure of personal information if anyone decides to use our service. We are committed to letting you know how we use your personal information and use it responsibly. \n\nThe information is solely used to provide and improve the service. The personal information we gather includes your name, address, email, and phone number, adhaar details, fingerprints. Please note that this individual information is not lost, misused, leased, or sold to organizations or associations that are not a part of the Saarthi Foundation. \n\nWe guarantee you that your individual data is held safely, according to the Data Protection Act. These services are not addressed to anyone below the age of 13. In case we discover that a child below 13 has provided us with his/her personal information, we immediately delete the data from our servers. \n\nIf you are a parent/guardian and aware that your child has provided us with personal information, you are hereby requested to inform us so that we are able to take necessary action. Users will be notified if the foundation decides to use users’ Personal Information in a manner different from that stated at the time of collection. \n\nIt is up to the users to choose whether or not the Foundation may use such information in this manner. If you have any concerns or queries, feel free to contact us at <contact details>"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left10ForgotGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right90ForgotGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAgreePolicy"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:text="Done"
+            android:textAllCaps="false"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintLeft_toRightOf="@+id/left10ForgotGuidline"
+            app:layout_constraintRight_toLeftOf="@+id/right90ForgotGuidline"
+            android:background="@drawable/button_bg"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

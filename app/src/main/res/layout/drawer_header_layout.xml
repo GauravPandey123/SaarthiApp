@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/buttonColor">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:src="@drawable/user_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/imgProfile"
+        app:layout_constraintLeft_toRightOf="@+id/imgProfile"
+        app:layout_constraintBottom_toBottomOf="@+id/imgProfile">
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:text="Pankaj Mangal"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="24sp"
+            android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvUserLocation"
+            android:text="Bangalore"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:drawablePadding="8dp"
+            android:textColor="@color/colorWhite"
+            android:drawableStart="@drawable/ic_location_on"
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTint="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:drawableLeft="@drawable/ic_location_on" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

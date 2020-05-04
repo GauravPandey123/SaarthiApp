@@ -11,4 +11,17 @@
     <string name="strAcceptingTermServices">By Signing in, you agreed with our \nTerms of Services.</string>
     <string name="strAlreadyAccountSignIn">Already have an account? Sign In</string>
     <string name="strSignUpTermsText">By Signing Up, you agreed with our \nTerms of Services.</string>
+    <string name="strLogout">Logout</string>
+    <string name="strRateApp">Rate App</string>
+    <string name="strFeedback">Feedback</string>
+    <string name="strReportProblem">Report a Problem</string>
+    <string name="strDonate">Donate</string>
+    <string name="strNotification">My Notifications</string>
+    <string name="strMyEvents">My Events</string>
+    <string name="strCommunity">My Communities</string>
+    <string name="strRequest">Requests</string>
+    <string name="strHome">Home</string>
+
+    <string name="navigation_drawer_open">Open Home</string>
+    <string name="navigation_drawer_close">Close Home</string>
 </resources>

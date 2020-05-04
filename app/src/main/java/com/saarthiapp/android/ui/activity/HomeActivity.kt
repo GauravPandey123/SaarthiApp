@@ -1,10 +1,13 @@
 package com.saarthiapp.android.ui.activity
 
+import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -38,15 +41,32 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         actHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         navController = Navigation.findNavController(this, R.id.homeNavHostContainer)
         setBottomNavMenu()
+        setupCardDrawer()
 
         homeToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarRed).findViewById(R.id.toolbarRed)
         OtherToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarBlue).findViewById(R.id.toolbarBlue)
         ProfileToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarProfile).findViewById(R.id.toolbarProfile)
 
+        val toggle =  ActionBarDrawerToggle(
+            this, actHomeBinding.mainDrawerLayout, homeToolbar,
+            R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        actHomeBinding.mainDrawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+//        toggle.drawerArrowDrawable =
+        toggle.setHomeAsUpIndicator(R.drawable.ic_navigation_menu)
         setupActionBar()
 
         // Add Listeners
         navController.addOnDestinationChangedListener(this)
+    }
+
+    private fun setupCardDrawer(){
+        actHomeBinding.mainDrawerLayout.useCustomBehavior(Gravity.START)
+        actHomeBinding.mainDrawerLayout.setViewScale(Gravity.START, 0.94f) //set height scale for main view (0f to 1f)
+        actHomeBinding.mainDrawerLayout.setViewElevation(Gravity.START, 20f)//set main view elevation when drawer open (dimension)
+        /*Color.parseColor("#00B2FF")*/
+        actHomeBinding.mainDrawerLayout.setViewScrimColor(Gravity.START, Color.TRANSPARENT)//set drawer overlay coloe (color)
+        actHomeBinding.mainDrawerLayout.setRadius(Gravity.START, 25f)//set end container's corner radius (dimension)
     }
 
     private fun setupActionBar() {

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.auth.frag.SuccessVolunteerJoining">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lavSuccessJoinVolunteer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/success_lottie_volunteer"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvSuccessText"
+            android:text="Successful !"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:textColor="#00D09C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/lavSuccessJoinVolunteer"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left5SuccessGL"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"/>
+
+        <TextView
+            android:id="@+id/tvSuccessVolunteerText"
+            android:text="Now, you are a volunteer of Saarthi Foundaion. Thanks for joining us."
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:layout_width="0dp"
+            android:padding="8dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvSuccessText"
+            app:layout_constraintLeft_toRightOf="@+id/left5SuccessGL"
+            app:layout_constraintRight_toLeftOf="@+id/left95SuccessGL"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left95SuccessGL"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

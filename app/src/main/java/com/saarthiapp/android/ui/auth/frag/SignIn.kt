@@ -28,7 +28,7 @@ import com.google.android.gms.location.LocationServices
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.FragmentSignInBinding
 
-class SignInFrag : Fragment() {
+class SignIn : Fragment() {
 
     private lateinit var fragmentSignInBinding: FragmentSignInBinding
     private val startSpanText = 23
