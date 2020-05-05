@@ -9,16 +9,105 @@
     <fragment
         android:id="@+id/signInFrag"
         android:name="com.saarthiapp.android.ui.auth.frag.SignIn"
-        android:label="fragment_sign_in"
+        android:label="sign in"
         tools:layout="@layout/fragment_sign_in" >
         <action
             android:id="@+id/action_signInFrag_to_signUpFrag"
             app:destination="@id/signUpFrag" />
+        <action
+            android:id="@+id/action_signInFrag_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
     </fragment>
 
     <fragment
         android:id="@+id/signUpFrag"
         android:name="com.saarthiapp.android.ui.auth.frag.SignUp"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        android:label="sign up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFrag_to_privacyPolicy"
+            app:destination="@id/privacyPolicy" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.saarthiapp.android.ui.auth.frag.ForgotPassword"
+        android:label="Forgot Password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_forgotPassword_to_createPassword"
+            app:destination="@id/createPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPassword"
+        android:name="com.saarthiapp.android.ui.auth.frag.CreatePassword"
+        android:label="Create Password"
+        tools:layout="@layout/fragment_create_password"/>
+    <fragment
+        android:id="@+id/addProfileDetails"
+        android:name="com.saarthiapp.android.ui.auth.frag.AddProfileDetails"
+        android:label="Add Profile Details"
+        tools:layout="@layout/fragment_add_profile_details">
+        <action
+            android:id="@+id/action_addProfileDetails_to_aadharVerification"
+            app:destination="@id/aadharVerification" />
+    </fragment>
+    <fragment
+        android:id="@+id/successVolunteerJoining"
+        android:name="com.saarthiapp.android.ui.auth.frag.SuccessVolunteerJoining"
+        android:label="Success Volunteer Joining"
+        tools:layout="@layout/fragment_success_volunteer_joining">
+        <action
+            android:id="@+id/action_successVolunteerJoining_to_howITWorks"
+            app:destination="@id/howITWorks" />
+    </fragment>
+    <fragment
+        android:id="@+id/aadharVerification"
+        android:name="com.saarthiapp.android.ui.auth.frag.AadharVerification"
+        android:label="Aadhar Verification"
+        tools:layout="@layout/fragment_aadhar_verification" >
+        <action
+            android:id="@+id/action_aadharVerification_to_faceVerification"
+            app:destination="@id/faceVerification" />
+    </fragment>
+    <fragment
+        android:id="@+id/faceVerification"
+        android:name="com.saarthiapp.android.ui.auth.frag.FaceVerification"
+        android:label="Face Verification"
+        tools:layout="@layout/fragment_face_verification" >
+        <action
+            android:id="@+id/action_faceVerification_to_fingerRecognition"
+            app:destination="@id/fingerRecognition" />
+    </fragment>
+    <fragment
+        android:id="@+id/fingerRecognition"
+        android:name="com.saarthiapp.android.ui.auth.frag.FingerRecognition"
+        android:label="Fingerprint Recognition"
+        tools:layout="@layout/fragment_finger_recognition" >
+        <action
+            android:id="@+id/action_fingerRecognition_to_successVolunteerJoining"
+            app:destination="@id/successVolunteerJoining" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyPolicy"
+        android:name="com.saarthiapp.android.ui.auth.frag.PrivacyPolicy"
+        android:label="Privacy Policy"
+        tools:layout="@layout/fragment_privacy_policy">
+        <action
+            android:id="@+id/action_privacyPolicy_to_addProfileDetails"
+            app:destination="@id/addProfileDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/howITWorks"
+        android:name="com.saarthiapp.android.ui.auth.frag.HowITWorks"
+        android:label="How IT Works"
+        tools:layout="@layout/fragment_how_i_t_works">
+        <action
+            android:id="@+id/action_howITWorks_to_mainCommunity"
+            app:destination="@id/mainCommunity" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainCommunity"
+        android:name="com.saarthiapp.android.ui.auth.frag.MainCommunity"
+        android:label="Main Community"
+        tools:layout="@layout/fragment_main_community" />
 </navigation>

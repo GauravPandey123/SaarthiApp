@@ -180,6 +180,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
         } else if(currentBottomMenuID == MEOW_HOME_BOTTOM_NAVIGATION){
             finishAffinity()
+            super.onBackPressed()
         }else if(currentBottomMenuID == MEOW_CHAT_BOTTOM_NAVIGATION){
             navController.popBackStack(R.id.saarthiHome, false)
             actHomeBinding.mbnBottomNav.show(MEOW_HOME_BOTTOM_NAVIGATION, true)

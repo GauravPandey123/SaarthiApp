@@ -18,6 +18,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
 import com.saarthiapp.android.R
@@ -26,6 +27,7 @@ import com.saarthiapp.android.ui.activity.HomeActivity
 
 class SignUp : Fragment(), View.OnClickListener {
 
+    private lateinit var navController: NavController
     private lateinit var fragmentSignUpBinding: FragmentSignUpBinding
     private val startSpanText = 25
     private val startTermsText = 36
@@ -35,7 +37,8 @@ class SignUp : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        fragmentSignUpBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
+        fragmentSignUpBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_sign_up, container, false)
         setSignupTextClickable()
         return fragmentSignUpBinding.root
     }
@@ -43,6 +46,7 @@ class SignUp : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navController = Navigation.findNavController(view)
         fragmentSignUpBinding.btnSignUp.setOnClickListener(this)
     }
 
@@ -96,10 +100,12 @@ class SignUp : Fragment(), View.OnClickListener {
         when(view) {
 
             fragmentSignUpBinding.btnSignUp -> {
-                val intentHome = Intent(requireActivity(), HomeActivity::class.java)
+                navController.navigate(R.id.action_signUpFrag_to_privacyPolicy)
+                /*val intentHome = Intent(requireActivity(), HomeActivity::class.java)
                 intentHome.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 requireActivity().startActivity(intentHome)
-                requireActivity().finishAffinity()
+                requireActivity().finishAffinity()*/
+
             }
         }
     }

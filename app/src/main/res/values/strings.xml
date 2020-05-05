@@ -24,4 +24,23 @@
 
     <string name="navigation_drawer_open">Open Home</string>
     <string name="navigation_drawer_close">Close Home</string>
+    <string name="strPrivacyPolicy"><![CDATA[This privacy policy details how Saarthi Foundation respects privacy when collecting the user’s personal information. This Privacy Policy explains what personal information we, Saarthi Foundation, use.\n\n
+
+The application ‘Saarthi’ is owned and operated by Ads and Url, a private limited company in Delhi, India. Henceforth, this service is provided by Ads and Url at no cost and is intended for use as is.\n\n
+
+The app is used to inform visitors regarding our policies with the collection, use, and disclosure of personal information if anyone decides to use our service. We are committed to letting you know how we use your personal information and use it responsibly. The information is solely used to provide and improve the service.\n\n
+
+The personal information we gather includes your name, address, email, and phone number, adhaar details, fingerprints. Please note that this individual information is not lost, misused, leased, or sold to organizations or associations that are not a part of the Saarthi Foundation.\n\n
+
+We guarantee you that your individual data is held safely, according to the Data Protection Act.\n\n
+
+These services are not addressed to anyone below the age of 13. In case we discover that a child below 13 has provided us with his/her personal information, we immediately delete the data from our servers. If you are a parent/guardian and aware that your child has provided us with personal information, you are hereby requested to inform us so that we are able to take necessary action.\n\n
+
+Users will be notified if the foundation decides to use users’ Personal Information in a manner different from that stated at the time of collection. It is up to the users to choose whether or not the Foundation may use such information in this manner. \n\n
+
+If you have any concerns or queries, feel free to contact us at <contact details>\n
+
+]]></string>
+    <string name="strEnterOtpSend">Enter the OTP send to</string>
+    <string name="strSignInInstead">Sign In instead.</string>
 </resources>

@@ -21,6 +21,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
@@ -28,7 +29,7 @@ import com.google.android.gms.location.LocationServices
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.FragmentSignInBinding
 
-class SignIn : Fragment() {
+class SignIn : Fragment(), View.OnClickListener {
 
     private lateinit var fragmentSignInBinding: FragmentSignInBinding
     private val startSpanText = 23
@@ -38,12 +39,15 @@ class SignIn : Fragment() {
         const val MY_PERMISSIONS_REQUEST_FINE_LOCATION = 111
     }
 
+    private lateinit var navController: NavController
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        fragmentSignInBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
+        fragmentSignInBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_sign_in, container, false)
         setLoginTextClickable()
         return fragmentSignInBinding.root
     }
@@ -94,6 +98,9 @@ class SignIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navController = Navigation.findNavController(view)
+        fragmentSignInBinding.tvForgotPassword.setOnClickListener(this)
+
         if (ContextCompat.checkSelfPermission(requireActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
@@ -101,6 +108,15 @@ class SignIn : Fragment() {
                 requireActivity(), // Activity
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 MY_PERMISSIONS_REQUEST_FINE_LOCATION);
+        }
+    }
+
+    override fun onClick(view: View?) {
+        when(view){
+
+            fragmentSignInBinding.tvForgotPassword -> {
+                navController.navigate(R.id.action_signInFrag_to_forgotPassword)
+            }
         }
     }
 

@@ -155,11 +155,8 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
     override fun onLocationChanged(location: Location?) {
         if(location != null){
             val latLng = LatLng(location.latitude, location.longitude)
-            val mCamera = CameraUpdateFactory.newLatLngZoom(latLng, 14f)
+            val mCamera = CameraUpdateFactory.newLatLngZoom(latLng, 12f)
             mGoogleMap.animateCamera(mCamera)
-
-
-
 
 
             val markerOptions = MarkerOptions()
@@ -174,58 +171,57 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
                 mGoogleMap.clear()
             }
 
-            val markerCurrent: View = (requireActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(
-                R.layout.current_location_marker_layout, null)
+            activity?.let{
+                val markerCurrent: View = (it.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(
+                    R.layout.current_location_marker_layout, null)
 
-            val markerVictim: View = (requireActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(
-                R.layout.custom_marker_layout, null)
+                val markerVictim: View = (it.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(
+                    R.layout.custom_marker_layout, null)
 
-            val markerVolunteer: View = (requireActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.custom_marker_volunteer_layout, null)
+                val markerVolunteer: View = (it.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.custom_marker_volunteer_layout, null)
 
-           /* val numTxt: TextView = marker.findViewById<View>(R.id.tvPostImageUsername) as TextView
-            numTxt.setText("Pankaj Mangal")*/
-
-            val latLng1 = LatLng(29.396158, 75.343186)
-            val latLng2 = LatLng(29.377643, 75.345179)
-            val latLng3 = LatLng(29.403543, 75.357250)
-            val latLng4 = LatLng(29.392369, 75.368793)
-            val latLng5 = LatLng(29.409144, 75.328933)
+                val latLng1 = LatLng(29.396158, 75.343186)
+                val latLng2 = LatLng(29.377643, 75.345179)
+                val latLng3 = LatLng(29.403543, 75.357250)
+                val latLng4 = LatLng(29.392369, 75.368793)
+                val latLng5 = LatLng(29.409144, 75.328933)
 
 
-            mMarker = mGoogleMap.addMarker(
-                MarkerOptions()
-                    .position(latLng)
-                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerCurrent)))
-            )
+                mMarker = mGoogleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng)
+                        .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerCurrent)))
+                )
 
-            mGoogleMap.addMarker(
-                MarkerOptions()
-                    .position(latLng1)
-                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVictim)))
-            )
-            mGoogleMap.addMarker(
-                MarkerOptions()
-                    .position(latLng2)
-                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
-            )
-            mGoogleMap.addMarker(
-                MarkerOptions()
-                    .position(latLng3)
-                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
-            )
+                mGoogleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng1)
+                        .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVictim)))
+                )
+                mGoogleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng2)
+                        .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
+                )
+                mGoogleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng3)
+                        .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
+                )
 
-            mGoogleMap.addMarker(
-                MarkerOptions()
-                    .position(latLng4)
-                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
-            )
+                mGoogleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng4)
+                        .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
+                )
 
-            mGoogleMap.addMarker(
-                MarkerOptions()
-                    .position(latLng5)
-                    .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
-            )
-//            mMarker =  mGoogleMap.addMarker(markerOptions)
+                mGoogleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng5)
+                        .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(requireActivity(), markerVolunteer)))
+                )
+            }
+
             val geofence = createGeoFence(mMarker!!.position, 5000f)
             val geoFenceRequest = GeofencingRequest.Builder()
                 .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
