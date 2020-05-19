@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.saarthiapp.android.R
-import com.saarthiapp.android.ui.auth.AuthActivity
+import com.saarthiapp.android.ui.introSlider.IntroSliderPage
 
 class SplashActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun handleScreenForLogin(){
         Handler().postDelayed({
-            val intentLogin = Intent(this@SplashActivity, AuthActivity::class.java)
+            val intentLogin = Intent(this@SplashActivity, IntroSliderPage::class.java)
             intentLogin.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intentLogin)
             finish()

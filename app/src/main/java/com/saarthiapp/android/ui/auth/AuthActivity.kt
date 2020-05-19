@@ -36,9 +36,6 @@ class AuthActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.fingerRecognition -> destination.label
                 R.id.successVolunteerJoining -> destination.label
 
-                R.id.howITWorks -> destination.label
-                R.id.mainCommunity -> destination.label
-
                 else -> "Login"
             }
             Log.e("Title Of Fragment", " :: $titleValue")
@@ -60,8 +57,6 @@ class AuthActivity : AppCompatActivity(), View.OnClickListener {
         }else if(title.equals("Privacy Policy", true)){
             actAuthBinding.clCustomToolbar.visibility = View.VISIBLE
             actAuthBinding.tvToolbarTitle.text = title
-        }else if(title.equals("How IT Works", true)){
-            actAuthBinding.clCustomToolbar.visibility = View.GONE
         }else if(title.equals("Fingerprint Recognition", true)){
             actAuthBinding.clCustomToolbar.visibility = View.VISIBLE
             actAuthBinding.tvToolbarTitle.text = title

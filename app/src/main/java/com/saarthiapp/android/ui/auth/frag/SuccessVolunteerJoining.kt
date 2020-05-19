@@ -13,6 +13,7 @@ import androidx.navigation.Navigation
 
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.FragmentSuccessVolunteerJoiningBinding
+import com.saarthiapp.android.ui.community.CommunityActivity
 
 class SuccessVolunteerJoining : Fragment() {
 
@@ -33,18 +34,15 @@ class SuccessVolunteerJoining : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navController = Navigation.findNavController(view)
-        handleScreenForHome()
+        handleScreenForCommunity()
     }
 
-    private fun handleScreenForHome(){
+    private fun handleScreenForCommunity(){
         Handler().postDelayed({
-           /* val intentLogin = Intent(this@SplashPage, MainDashboardPage::class.java)
+            val intentLogin = Intent(requireContext(), CommunityActivity::class.java)
             intentLogin.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intentLogin)
-            finishAffinity()*/
-
-//            navController.popBackStack()
-            navController.navigate(R.id.action_successVolunteerJoining_to_howITWorks)
+            requireActivity().finishAffinity()
         }, 5000)
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/community_nav_graph"
+    app:startDestination="@id/howITWorks">
+
+    <fragment
+        android:id="@+id/howITWorks"
+        android:name="com.saarthiapp.android.ui.community.frag.HowITWorks"
+        android:label="HowITWorks"
+        tools:layout="@layout/fragment_how_i_t_works">
+        <action
+            android:id="@+id/action_howITWorks_to_communities"
+            app:destination="@id/communities" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/communities"
+        android:name="com.saarthiapp.android.ui.community.frag.Communities"
+        android:label="Communities"
+        tools:layout="@layout/fragment_communities">
+        <action
+            android:id="@+id/action_communities_to_createNewCommunity"
+            app:destination="@id/createNewCommunity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/communityCreated"
+        android:name="com.saarthiapp.android.ui.community.frag.CommunityCreated"
+        android:label="Community Created"
+        tools:layout="@layout/fragment_community_created"/>
+
+    <fragment
+        android:id="@+id/createNewCommunity"
+        android:name="com.saarthiapp.android.ui.community.frag.CreateNewCommunity"
+        android:label="Create New Community"
+        tools:layout="@layout/fragment_create_new_community">
+        <action
+            android:id="@+id/action_createNewCommunity_to_communityCreated"
+            app:destination="@id/communityCreated" />
+    </fragment>
+
+</navigation>

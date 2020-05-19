@@ -100,6 +100,7 @@ class SignIn : Fragment(), View.OnClickListener {
 
         navController = Navigation.findNavController(view)
         fragmentSignInBinding.tvForgotPassword.setOnClickListener(this)
+        fragmentSignInBinding.btnSignIn.setOnClickListener(this)
 
         if (ContextCompat.checkSelfPermission(requireActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION)
@@ -116,6 +117,10 @@ class SignIn : Fragment(), View.OnClickListener {
 
             fragmentSignInBinding.tvForgotPassword -> {
                 navController.navigate(R.id.action_signInFrag_to_forgotPassword)
+            }
+
+            fragmentSignInBinding.btnSignIn -> {
+                Toast.makeText(requireContext(), "Task is pending !!", Toast.LENGTH_SHORT).show()
             }
         }
     }

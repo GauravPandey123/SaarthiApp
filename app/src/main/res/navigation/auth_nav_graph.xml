@@ -55,11 +55,7 @@
         android:id="@+id/successVolunteerJoining"
         android:name="com.saarthiapp.android.ui.auth.frag.SuccessVolunteerJoining"
         android:label="Success Volunteer Joining"
-        tools:layout="@layout/fragment_success_volunteer_joining">
-        <action
-            android:id="@+id/action_successVolunteerJoining_to_howITWorks"
-            app:destination="@id/howITWorks" />
-    </fragment>
+        tools:layout="@layout/fragment_success_volunteer_joining"/>
     <fragment
         android:id="@+id/aadharVerification"
         android:name="com.saarthiapp.android.ui.auth.frag.AadharVerification"
@@ -96,18 +92,4 @@
             android:id="@+id/action_privacyPolicy_to_addProfileDetails"
             app:destination="@id/addProfileDetails" />
     </fragment>
-    <fragment
-        android:id="@+id/howITWorks"
-        android:name="com.saarthiapp.android.ui.auth.frag.HowITWorks"
-        android:label="How IT Works"
-        tools:layout="@layout/fragment_how_i_t_works">
-        <action
-            android:id="@+id/action_howITWorks_to_mainCommunity"
-            app:destination="@id/mainCommunity" />
-    </fragment>
-    <fragment
-        android:id="@+id/mainCommunity"
-        android:name="com.saarthiapp.android.ui.auth.frag.MainCommunity"
-        android:label="Main Community"
-        tools:layout="@layout/fragment_main_community" />
 </navigation>

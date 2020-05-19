@@ -29,7 +29,9 @@ import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_PROFILE_BOTTOM_N
 class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
     private lateinit var actHomeBinding:ActivityHomeBinding
-    private lateinit var navController: NavController
+    private val navController: NavController by lazy {
+        Navigation.findNavController(this, R.id.homeNavHostContainer)
+    }
     private lateinit var homeToolbar: Toolbar
     private lateinit var OtherToolbar: Toolbar
     private lateinit var ProfileToolbar: Toolbar
@@ -39,7 +41,6 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         actHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
-        navController = Navigation.findNavController(this, R.id.homeNavHostContainer)
         setBottomNavMenu()
         setupCardDrawer()
 

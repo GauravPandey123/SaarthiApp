@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/tvSignInText"
-            android:text="sign in"
+            android:text="@string/strSignIn"
             android:textAllCaps="true"
             android:textSize="34sp"
             android:textStyle="bold"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/tvEnterSignInDetails"
-            android:text="Enter your details to continue."
+            android:text="@string/strEnterLoginDetailToContinue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tvSignInText"
@@ -78,7 +78,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Password"
+            android:hint="@string/strPwd"
             app:hintTextColor="@color/colorBlack"
             app:layout_constraintLeft_toRightOf="@+id/left10LoginGuidline"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
@@ -100,9 +100,9 @@
 
         <TextView
             android:id="@+id/tvForgotPassword"
-            android:text="Forgot Your Password?"
+            android:text="@string/strForgotPwd"
             android:textSize="15sp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintRight_toLeftOf="@+id/right90LoginGuidline"
@@ -153,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.98"/>
+            app:layout_constraintGuide_percent="0.97"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

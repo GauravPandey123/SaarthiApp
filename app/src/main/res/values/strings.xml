@@ -13,10 +13,10 @@
     <string name="strSignUpTermsText">By Signing Up, you agreed with our \nTerms of Services.</string>
     <string name="strLogout">Logout</string>
     <string name="strRateApp">Rate App</string>
-    <string name="strFeedback">Feedback</string>
+    <string name="strFeedback">Rate &amp; Feedback</string>
     <string name="strReportProblem">Report a Problem</string>
     <string name="strDonate">Donate</string>
-    <string name="strNotification">My Notifications</string>
+    <string name="strNotification">Notifications</string>
     <string name="strMyEvents">My Events</string>
     <string name="strCommunity">My Communities</string>
     <string name="strRequest">Requests</string>
@@ -43,4 +43,35 @@ If you have any concerns or queries, feel free to contact us at <contact details
 ]]></string>
     <string name="strEnterOtpSend">Enter the OTP send to</string>
     <string name="strSignInInstead">Sign In instead.</string>
+    <string name="strNext">Next</string>
+    <string name="strFinish">Finish</string>
+
+
+    <!--Intro slider string value here.....-->
+    <string name="strHelpTogether">Let’s Help Together</string>
+    <string name="strHelpTogetherDesc">Promoting the welfare of the deprived section of the society</string>
+
+    <string name="strEasyToHelp">Its Easy To Help</string>
+    <string name="strEasyToHelpDesc">Providing underprivileged children with quality education and proper nutrition</string>
+
+    <string name="strBeSaarthi">Be A Saarthi</string>
+    <string name="strBeSaarthiDesc">Developing society, improving communities, and taking care of the well-being of the citizens</string>
+
+    <string name="strBeChangemaker">Be A Changemaker</string>
+    <string name="strBeChangemakerDesc">Helping people discover their potential to become a changemaker</string>
+    <string name="strSkip">Skip</string>
+    <string name="strSignIn">sign in</string>
+    <string name="strEnterLoginDetailToContinue">Enter your details to continue.</string>
+    <string name="strPwd">Password</string>
+    <string name="strForgotPwd">Forgot Your Password?</string>
+    <string name="strSignUp">Sign Up</string>
+    <string name="strMobNumber">Mobile Number</string>
+    <string name="strFogotPwdText">You will recieve an OTP on the mobile number you will enter to reset password.</string>
+    <string name="strForgotTextRequired">Enter your registered mobile number.</string>
+    <string name="strForgotPass">forgot password</string>
+    <string name="strDidntReceiveOtp">Didn\'t receive OTP :</string>
+    <string name="strResendOTP">Resend OTP</string>
+    <string name="strShare">Share</string>
+    <string name="strJoin">Join</string>
+    <string name="strCoronaCommunityText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur sit feugiat turpis elit. Cras duis euismod at vitae risus penatibus amet a, ut...</string>
 </resources>

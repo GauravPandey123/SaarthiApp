@@ -1,4 +1,4 @@
-package com.saarthiapp.android.ui.auth.frag
+package com.saarthiapp.android.ui.community.frag
 
 import android.content.Intent
 import android.os.Bundle
@@ -38,10 +38,7 @@ class HowITWorks : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0){
             fragHowItWorkBinding.btnGetStarted -> {
-                val intentHome = Intent(requireActivity(), HomeActivity::class.java)
-                intentHome.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                requireActivity().startActivity(intentHome)
-                requireActivity().finishAffinity()
+                navController.navigate(R.id.action_howITWorks_to_communities)
             }
         }
     }

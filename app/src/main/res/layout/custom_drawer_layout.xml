@@ -5,18 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/buttonColor">
 
-   <ScrollView
-       android:layout_width="0dp"
-       android:layout_height="0dp"
-       app:layout_constraintLeft_toLeftOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintRight_toRightOf="parent"
-       app:layout_constraintBottom_toBottomOf="parent">
-
-       <androidx.constraintlayout.widget.ConstraintLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-
            <ImageView
                android:id="@+id/imgCloseMenu"
                android:src="@drawable/ic_menu_close"
@@ -40,8 +28,8 @@
                <de.hdodenhof.circleimageview.CircleImageView
                    android:id="@+id/imgProfile"
                    android:src="@drawable/user_profile"
-                   android:layout_width="80dp"
-                   android:layout_height="80dp"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintTop_toTopOf="parent"
                    app:layout_constraintBottom_toBottomOf="parent"/>
@@ -88,11 +76,12 @@
 
            <androidx.constraintlayout.widget.ConstraintLayout
                android:layout_width="0dp"
-               android:layout_height="wrap_content"
+               android:layout_height="0dp"
                android:layout_marginTop="20dp"
                app:layout_constraintLeft_toLeftOf="parent"
                app:layout_constraintRight_toRightOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/clDrawerProfileLayout">
+               app:layout_constraintTop_toBottomOf="@+id/clDrawerProfileLayout"
+               app:layout_constraintBottom_toBottomOf="parent">
 
                <TextView
                    android:id="@+id/tvDrawerHome"
@@ -109,20 +98,6 @@
                    app:layout_constraintRight_toRightOf="parent"/>
 
                <TextView
-                   android:id="@+id/tvDrawerRequest"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:text="@string/strRequest"
-                   android:textSize="20sp"
-                   android:textStyle="bold"
-                   android:padding="12dp"
-                   android:layout_marginStart="6dp"
-                   android:textColor="@color/colorWhite"
-                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerHome"
-                   app:layout_constraintLeft_toLeftOf="parent"
-                   app:layout_constraintRight_toRightOf="parent"/>
-
-               <TextView
                    android:id="@+id/tvDrawerCommunity"
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
@@ -132,7 +107,7 @@
                    android:padding="12dp"
                    android:layout_marginStart="6dp"
                    android:textColor="@color/colorWhite"
-                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerRequest"
+                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerHome"
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintRight_toRightOf="parent"/>
 
@@ -179,20 +154,6 @@
                    app:layout_constraintRight_toRightOf="parent"/>
 
                <TextView
-                   android:id="@+id/tvDrawerReportProblem"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:text="@string/strReportProblem"
-                   android:textSize="20sp"
-                   android:textStyle="bold"
-                   android:padding="12dp"
-                   android:layout_marginStart="6dp"
-                   android:textColor="@color/colorWhite"
-                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerDonate"
-                   app:layout_constraintLeft_toLeftOf="parent"
-                   app:layout_constraintRight_toRightOf="parent"/>
-
-               <TextView
                    android:id="@+id/tvDrawerFeedback"
                    android:layout_width="0dp"
                    android:layout_height="wrap_content"
@@ -202,21 +163,7 @@
                    android:layout_marginStart="6dp"
                    android:padding="12dp"
                    android:textColor="@color/colorWhite"
-                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerReportProblem"
-                   app:layout_constraintLeft_toLeftOf="parent"
-                   app:layout_constraintRight_toRightOf="parent"/>
-
-               <TextView
-                   android:id="@+id/tvDrawerRateApp"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:text="@string/strRateApp"
-                   android:textSize="20sp"
-                   android:textStyle="bold"
-                   android:padding="12dp"
-                   android:layout_marginStart="6dp"
-                   android:textColor="@color/colorWhite"
-                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerFeedback"
+                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerDonate"
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintRight_toRightOf="parent"/>
 
@@ -230,12 +177,10 @@
                    android:padding="12dp"
                    android:layout_marginStart="6dp"
                    android:textColor="@color/colorWhite"
-                   app:layout_constraintTop_toBottomOf="@+id/tvDrawerRateApp"
+                   app:layout_constraintBottom_toBottomOf="parent"
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintRight_toRightOf="parent"/>
 
            </androidx.constraintlayout.widget.ConstraintLayout>
-       </androidx.constraintlayout.widget.ConstraintLayout>
-   </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
