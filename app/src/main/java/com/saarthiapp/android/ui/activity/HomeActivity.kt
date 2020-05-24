@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -146,6 +147,14 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             actHomeBinding.includeToolbarProfile.visibility = View.GONE
             actHomeBinding.includeToolbarRed.visibility = View.VISIBLE
             actHomeBinding.mbnBottomNav.visibility = View.VISIBLE
+            drawerToggleDelegate!!
+                .setActionBarUpIndicator(
+                    ContextCompat.getDrawable(
+                        this,
+                        R.drawable.ic_navigation_menu
+                    ),
+                    androidx.navigation.ui.R.string.nav_app_bar_open_drawer_description
+                )
         }else  if (destination.id == R.id.myProfile) {
             actHomeBinding.includeToolbarProfile.visibility = View.VISIBLE
             actHomeBinding.includeToolbarBlue.visibility = View.GONE
