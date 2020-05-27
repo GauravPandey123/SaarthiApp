@@ -46,9 +46,23 @@
         android:name="com.saarthiapp.android.ui.home.EditProfileFrag"
         android:label="Edit Profile"
         tools:layout="@layout/fragment_edit_profile"/>
+
     <fragment
         android:id="@+id/searchVolunteerFrag"
         android:name="com.saarthiapp.android.ui.home.SearchVolunteerFrag"
         android:label="Search Volunteer"
         tools:layout="@layout/fragment_search_volunteer"/>
+
+    <fragment
+        android:id="@+id/rateOurApp"
+        android:name="com.saarthiapp.android.ui.home.drawerFrag.RateOurApp"
+        android:label="RateOurApp"
+        tools:layout="@layout/fragment_rate_our_app"/>
+
+    <fragment
+        android:id="@+id/donateSaarthi"
+        android:name="com.saarthiapp.android.ui.home.drawerFrag.Donate"
+        android:label="Donate"
+        tools:layout="@layout/fragment_donate"/>
+
 </navigation>

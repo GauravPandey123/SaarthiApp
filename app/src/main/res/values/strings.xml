@@ -74,4 +74,6 @@ If you have any concerns or queries, feel free to contact us at <contact details
     <string name="strShare">Share</string>
     <string name="strJoin">Join</string>
     <string name="strCoronaCommunityText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur sit feugiat turpis elit. Cras duis euismod at vitae risus penatibus amet a, ut...</string>
+    <string name="strDonateToCare">Donate To Care</string>
+    <string name="strYesAccept">Yes</string>
 </resources>

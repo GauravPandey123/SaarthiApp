@@ -94,6 +94,7 @@
            android:fitsSystemWindows="true">
 
            <include
+               android:id="@+id/includedCustomNavView"
                layout="@layout/custom_drawer_layout"/>
        </com.google.android.material.navigation.NavigationView>
    </com.rupins.drawercardbehaviour.CardDrawerLayout>

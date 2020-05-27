@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -54,6 +55,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -66,7 +68,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$OkkHttpVersion"
 
     // -- Lifecycle Components (ViewModel, LiveData and ReactiveStreams)
-    def lifecycle_version = "2.3.0-alpha02"
+    def lifecycle_version = "2.3.0-alpha03"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
@@ -100,10 +102,16 @@ dependencies {
 
     // jetpack navigation components
 //    def nav_version = "2.1.0-alpha06" // NEWEST VERSION DOESN'T HANDLE BACK NAV PROPERLY!!!
-    def nav_version = "2.3.0-alpha06"
+    def nav_version = "2.3.0-beta01"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.navigation:navigation-runtime:$nav_version"
+
+    //firebase ml kit library...
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+    // If you want to detect face contours (landmark detection and classification
+    // don't require this additional model):
+    implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.1'
 
 
     def material_version = "1.2.0-alpha06"
@@ -141,7 +149,7 @@ dependencies {
 
     //Multidex
     def multidex_version = "1.0.3"
-    implementation "com.android.support:multidex:$multidex_version"
+    implementation 'androidx.multidex:multidex:2.0.0'
 
     def circular_imageview_version = "3.1.0"
     implementation "de.hdodenhof:circleimageview:$circular_imageview_version"
@@ -167,4 +175,10 @@ dependencies {
     //page indicator view library...
     def viewpagerDotIndicatorView = "3.0.3"
     implementation "com.tbuonomo.andrui:viewpagerdotsindicator:$viewpagerDotIndicatorView"
+
+    //Fingerprint authentication library...
+    implementation "androidx.biometric:biometric:1.0.1"
+
+    //Smily rating bar library...
+    implementation 'com.github.sujithkanna:smileyrating:2.0.0'
 }

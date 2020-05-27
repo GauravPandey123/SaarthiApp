@@ -18,7 +18,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.Navigation
-import androidx.navigation.ui.*
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.ActivityHomeBinding
@@ -27,7 +29,8 @@ import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_HOME_BOTTOM_NAVI
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_OUT_WORK_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_PROFILE_BOTTOM_NAVIGATION
 
-class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
+class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedListener,
+    View.OnClickListener {
 
     private lateinit var actHomeBinding:ActivityHomeBinding
     private val navController: NavController by lazy {
@@ -44,6 +47,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         actHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         setBottomNavMenu()
         setupCardDrawer()
+        setupHeaderView()
 
         homeToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarRed).findViewById(R.id.toolbarRed)
         OtherToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarBlue).findViewById(R.id.toolbarBlue)
@@ -64,11 +68,23 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     private fun setupCardDrawer(){
         actHomeBinding.mainDrawerLayout.useCustomBehavior(Gravity.START)
-        actHomeBinding.mainDrawerLayout.setViewScale(Gravity.START, 0.94f) //set height scale for main view (0f to 1f)
+        actHomeBinding.mainDrawerLayout.setViewScale(Gravity.START, 0.90f) //set height scale for main view (0f to 1f)
         actHomeBinding.mainDrawerLayout.setViewElevation(Gravity.START, 20f)//set main view elevation when drawer open (dimension)
         /*Color.parseColor("#00B2FF")*/
-        actHomeBinding.mainDrawerLayout.setViewScrimColor(Gravity.START, Color.TRANSPARENT)//set drawer overlay coloe (color)
+        actHomeBinding.mainDrawerLayout.setViewScrimColor(Gravity.START, Color.TRANSPARENT)//set drawer overlay color (color)
         actHomeBinding.mainDrawerLayout.setRadius(Gravity.START, 25f)//set end container's corner radius (dimension)
+    }
+
+    private fun setupHeaderView(){
+        actHomeBinding.includedCustomNavView.tvDrawerHome.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.tvDrawerCommunity.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.tvDrawerDonate.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.tvDrawerEvent.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.tvDrawerNotification.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.tvDrawerLogout.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.tvDrawerFeedback.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.clDrawerProfileLayout.setOnClickListener(this)
+        actHomeBinding.includedCustomNavView.imgCloseMenu.setOnClickListener(this)
     }
 
     private fun setupActionBar() {
@@ -202,6 +218,49 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             navController.popBackStack(R.id.saarthiHome, false)
         } else {
             super.onBackPressed()
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        when(p0){
+
+            actHomeBinding.includedCustomNavView.imgCloseMenu -> {
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.clDrawerProfileLayout -> {
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.tvDrawerHome -> {
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.tvDrawerCommunity -> {
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.tvDrawerDonate -> {
+                navController.navigate(R.id.donateSaarthi)
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.tvDrawerEvent -> {
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.tvDrawerFeedback -> {
+                navController.navigate(R.id.rateOurApp)
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.tvDrawerNotification -> {
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            actHomeBinding.includedCustomNavView.tvDrawerLogout -> {
+                actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
+            }
         }
     }
 }

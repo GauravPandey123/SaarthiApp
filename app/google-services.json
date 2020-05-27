@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "877802582307",
+    "firebase_url": "https://saarthiapp-f9ffe.firebaseio.com",
+    "project_id": "saarthiapp-f9ffe",
+    "storage_bucket": "saarthiapp-f9ffe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877802582307:android:c2d907fab2ca3091051c96",
+        "android_client_info": {
+          "package_name": "com.saarthiapp.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877802582307-8q3jv8el5r6v2hg7miuokgtpt6jhc0tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHx98wavKLiU29LfE-Mr3MPxp2Pv2dyY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877802582307-8q3jv8el5r6v2hg7miuokgtpt6jhc0tu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
