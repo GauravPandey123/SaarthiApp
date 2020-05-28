@@ -67,14 +67,14 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
             (childFragmentManager.findFragmentById(R.id.homeVolunteerMapFrag) as SupportMapFragment).getMapAsync(this)
         }
 
-        fragHomeBinding.clSearchVolunteerLayout.setOnClickListener(this)
+//        fragHomeBinding.clSearchVolunteerLayout.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when(view){
-            fragHomeBinding.clSearchVolunteerLayout -> {
+            /*fragHomeBinding.clSearchVolunteerLayout -> {
                 navController.navigate(R.id.action_saarthiHome_to_searchVolunteerFrag)
-            }
+            }*/
         }
     }
 
@@ -115,14 +115,14 @@ class Home : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks
         )*/
     }
 
-    private fun setupRecyclerView(){
+    /*private fun setupRecyclerView(){
         val layoutManagerVolunteer = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         fragHomeBinding.recViewHomeVolunteer.apply {
             layoutManager = layoutManagerVolunteer
             itemAnimator = DefaultItemAnimator()
             hasFixedSize()
         }
-    }
+    }*/
 
     override fun onConnected(p0: Bundle?) {
         // Check for permission

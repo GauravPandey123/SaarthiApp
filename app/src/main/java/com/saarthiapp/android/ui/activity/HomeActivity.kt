@@ -24,21 +24,22 @@ import androidx.navigation.ui.setupWithNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.ActivityHomeBinding
+import com.saarthiapp.android.ui.popup.LogoutDialogFrag
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_CHAT_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_HOME_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_OUT_WORK_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_PROFILE_BOTTOM_NAVIGATION
 
 class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedListener,
-    View.OnClickListener {
+    View.OnClickListener, LogoutDialogFrag.LogoutDismissListener {
 
     private lateinit var actHomeBinding:ActivityHomeBinding
     private val navController: NavController by lazy {
         Navigation.findNavController(this, R.id.homeNavHostContainer)
     }
-    private lateinit var homeToolbar: Toolbar
+    /*private lateinit var homeToolbar: Toolbar
     private lateinit var OtherToolbar: Toolbar
-    private lateinit var ProfileToolbar: Toolbar
+    private lateinit var ProfileToolbar: Toolbar*/
 
     private var currentBottomMenuID:Int ?= null
 
@@ -48,19 +49,11 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setBottomNavMenu()
         setupCardDrawer()
         setupHeaderView()
+        setupToolbarClickListener()
 
-        homeToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarRed).findViewById(R.id.toolbarRed)
+        /*homeToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarRed).findViewById(R.id.toolbarRed)
         OtherToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarBlue).findViewById(R.id.toolbarBlue)
-        ProfileToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarProfile).findViewById(R.id.toolbarProfile)
-
-        val toggle =  ActionBarDrawerToggle(
-            this, actHomeBinding.mainDrawerLayout, homeToolbar,
-            R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        actHomeBinding.mainDrawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-//        toggle.drawerArrowDrawable =
-        toggle.setHomeAsUpIndicator(R.drawable.ic_navigation_menu)
-        setupActionBar()
+        ProfileToolbar = findViewById<ConstraintLayout>(R.id.include_toolbarProfile).findViewById(R.id.toolbarProfile)*/
 
         // Add Listeners
         navController.addOnDestinationChangedListener(this)
@@ -75,6 +68,17 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         actHomeBinding.mainDrawerLayout.setRadius(Gravity.START, 25f)//set end container's corner radius (dimension)
     }
 
+    private fun setupToolbarClickListener(){
+        actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.setOnClickListener(this)
+        actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.setOnClickListener(this)
+        actHomeBinding.includedCustomToolbarWithouSearch.imgHomeWithoutBack.setOnClickListener(this)
+
+        actHomeBinding.includedCustomToolbar.clToolbarWithSearch.setOnClickListener(this)
+        actHomeBinding.includedCustomToolbar.imgAddPost.setOnClickListener(this)
+        actHomeBinding.includedCustomToolbar.imgHomeNotification.setOnClickListener(this)
+        actHomeBinding.includedCustomToolbar.imgHomeNavView.setOnClickListener(this)
+    }
+
     private fun setupHeaderView(){
         actHomeBinding.includedCustomNavView.tvDrawerHome.setOnClickListener(this)
         actHomeBinding.includedCustomNavView.tvDrawerCommunity.setOnClickListener(this)
@@ -87,7 +91,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         actHomeBinding.includedCustomNavView.imgCloseMenu.setOnClickListener(this)
     }
 
-    private fun setupActionBar() {
+    /*private fun setupActionBar() {
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.saarthiHome, R.id.ourWork,
             R.id.chatHome, R.id.myProfile), actHomeBinding.mainDrawerLayout)
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
@@ -104,7 +108,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             setSupportActionBar(ProfileToolbar)
             ProfileToolbar.setupWithNavController(navController,appBarConfiguration)
         }
-    }
+    }*/
 
     private fun setBottomNavMenu(){
         actHomeBinding.mbnBottomNav.add(MeowBottomNavigation.Model(MEOW_HOME_BOTTOM_NAVIGATION, R.drawable.ic_home))
@@ -156,49 +160,77 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
-    override fun onDestinationChanged(controller: NavController, destination: NavDestination, arguments: Bundle?) {
-
+    override fun onDestinationChanged(controller: NavController,
+                                      destination: NavDestination,
+                                      arguments: Bundle?) {
         if (destination.id == R.id.saarthiHome) {
-            actHomeBinding.includeToolbarBlue.visibility = View.GONE
-            actHomeBinding.includeToolbarProfile.visibility = View.GONE
-            actHomeBinding.includeToolbarRed.visibility = View.VISIBLE
-            actHomeBinding.mbnBottomNav.visibility = View.VISIBLE
-            drawerToggleDelegate!!
-                .setActionBarUpIndicator(
-                    ContextCompat.getDrawable(
-                        this,
-                        R.drawable.ic_navigation_menu
-                    ),
-                    androidx.navigation.ui.R.string.nav_app_bar_open_drawer_description
-                )
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.text = destination.label
+        }else  if (destination.id == R.id.chatHome) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.text = destination.label
+        }else  if (destination.id == R.id.ourWork) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.text = destination.label
         }else  if (destination.id == R.id.myProfile) {
-            actHomeBinding.includeToolbarProfile.visibility = View.VISIBLE
-            actHomeBinding.includeToolbarBlue.visibility = View.GONE
-            actHomeBinding.includeToolbarRed.visibility = View.GONE
-            actHomeBinding.mbnBottomNav.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
         }else  if (destination.id == R.id.searchVolunteerFrag) {
-            actHomeBinding.includeToolbarProfile.visibility = View.GONE
-            actHomeBinding.includeToolbarBlue.visibility = View.GONE
-            actHomeBinding.includeToolbarRed.visibility = View.GONE
-            actHomeBinding.mbnBottomNav.visibility = View.GONE
-        }else  if (destination.id == R.id.editProfileFrag) {
-            actHomeBinding.includeToolbarProfile.visibility = View.VISIBLE
-            actHomeBinding.includeToolbarBlue.visibility = View.GONE
-            actHomeBinding.includeToolbarRed.visibility = View.GONE
-            actHomeBinding.mbnBottomNav.visibility = View.GONE
-        } else {
-            actHomeBinding.includeToolbarBlue.visibility = View.VISIBLE
-            actHomeBinding.includeToolbarRed.visibility = View.GONE
-            actHomeBinding.includeToolbarProfile.visibility = View.GONE
-            actHomeBinding.mbnBottomNav.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+        }else if (destination.id == R.id.editProfileFrag) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        } else if (destination.id == R.id.rateOurApp) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        }else if (destination.id == R.id.donateSaarthi) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        } else if (destination.id == R.id.notificationSetting) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        }else if (destination.id == R.id.notifications) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.VISIBLE
         }
-
-        setupActionBar()
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        navController.navigateUp()
-        return super.onSupportNavigateUp()
     }
 
     override fun onBackPressed() {
@@ -223,6 +255,34 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     override fun onClick(p0: View?) {
         when(p0){
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification -> {
+                navController.navigate(R.id.notifications)
+            }
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting -> {
+                navController.navigate(R.id.notificationSetting)
+            }
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeWithoutBack -> {
+                navController.navigateUp()
+            }
+
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch -> {
+                navController.navigate(R.id.searchVolunteerFrag)
+            }
+
+            actHomeBinding.includedCustomToolbar.imgAddPost -> {
+                //add post popup
+            }
+
+            actHomeBinding.includedCustomToolbar.imgHomeNotification -> {
+                navController.navigate(R.id.notifications)
+            }
+
+            actHomeBinding.includedCustomToolbar.imgHomeNavView -> {
+                actHomeBinding.mainDrawerLayout.openDrawer(GravityCompat.START)
+            }
 
             actHomeBinding.includedCustomNavView.imgCloseMenu -> {
                 actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
@@ -255,12 +315,23 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             }
 
             actHomeBinding.includedCustomNavView.tvDrawerNotification -> {
+                navController.navigate(R.id.notifications)
                 actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
             }
 
             actHomeBinding.includedCustomNavView.tvDrawerLogout -> {
+//                navController.navigate(R.id.logoutDialogFrag)
+
+                val logoutDialog = LogoutDialogFrag()
+                logoutDialog.setLogoutListener(this)
+                logoutDialog.isCancelable = false
+                logoutDialog.show(supportFragmentManager, "Logout Popup !!")
                 actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
             }
         }
+    }
+
+    override fun onLogoutDismiss() {
+        //do some logout operation when user logout
     }
 }

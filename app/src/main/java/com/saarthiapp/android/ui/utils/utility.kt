@@ -4,9 +4,11 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Typeface
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -33,7 +35,7 @@ fun createDrawableFromView(
     return bitmap
 }
 
-private fun bitmapDescriptorFromVector(
+fun bitmapDescriptorFromVector(
     context: Context,
     vectorResId: Int
 ): BitmapDescriptor? {
@@ -52,4 +54,10 @@ private fun bitmapDescriptorFromVector(
     val canvas = Canvas(bitmap)
     vectorDrawable.draw(canvas)
     return BitmapDescriptorFactory.fromBitmap(bitmap)
+}
+
+fun TextView.setRobotoFontType(mCtx:Context){
+    val typeFace = Typeface.createFromAsset(mCtx.assets,
+        "fonts/Roboto-Regular.ttf")
+    this.setTypeface(typeFace)
 }

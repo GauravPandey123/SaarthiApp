@@ -50,10 +50,10 @@
 
                         <ImageView
                             android:src="@drawable/ic_camera_outlined"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
@@ -65,14 +65,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.03"/>
+                    app:layout_constraintGuide_percent="0.05"/>
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/editProfile097Guideline"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.97"/>
+                    app:layout_constraintGuide_percent="0.95"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
@@ -83,156 +83,195 @@
                     app:layout_constraintRight_toLeftOf="@+id/editProfile097Guideline">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilUsername"
+                        android:id="@+id/tilFullname"
                         android:layout_width="0dp"
-                        app:boxBackgroundColor="#F6F6F6"
-                        android:background="@drawable/edit_field_bg"
-                        app:boxStrokeColor="@android:color/transparent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:hint="Name"
+                        app:hintTextColor="@color/colorBlack"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:baselineAligned="false"
-
-                        android:hint="Name">
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtUserName"
-                            android:inputType="textCapWords"
-                            android:background="@null"
-                            android:text="Pankaj Mangal"
-
-                            android:paddingLeft="50dp"
+                            android:id="@+id/edtFullName"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:padding="16dp"
+                            android:background="@drawable/edit_field_bg"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilMobile"
+                        android:id="@+id/tilMobileNumber"
                         android:layout_width="0dp"
-                        android:layout_marginTop="12dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/tilUsername"
+                        android:layout_marginTop="8dp"
+                        android:hint="Mobile Number"
+                        app:hintTextColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@+id/tilFullname"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:hint="Mobile Number">
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtMobNumber"
-                            android:inputType="textCapWords"
-                            android:text="9876543210"
-                            android:background="@drawable/edit_field_bg"
+                            android:id="@+id/edtMobileNumber"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:drawableEnd="@drawable/ic_mobile_verify"
+                            android:padding="16dp"
+                            android:background="@drawable/edit_field_bg"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilDOB"
                         android:layout_width="0dp"
-                        android:layout_marginTop="12dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/tilMobile"
+                        android:layout_marginTop="8dp"
+                        android:hint="Date of Birth"
+                        app:hintTextColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@+id/tilMobileNumber"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:hint="Date of Birth">
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edtDOB"
-                            android:inputType="textCapWords"
-                            android:background="@drawable/edit_field_bg"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:drawableEnd="@drawable/ic_date_calender"
+                            android:padding="16dp"
+                            android:background="@drawable/edit_field_bg"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilAddress"
+                        android:id="@+id/tilStreet"
                         android:layout_width="0dp"
-                        android:layout_marginTop="12dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Street"
+                        app:hintTextColor="@color/colorBlack"
                         app:layout_constraintTop_toBottomOf="@+id/tilDOB"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:hint="Address">
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtAddress"
-                            android:inputType="textCapWords"
-                            android:background="@drawable/edit_field_bg"
+                            android:id="@+id/edtStreet"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:padding="16dp"
+                            android:background="@drawable/edit_field_bg"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilCity"
+                        android:id="@+id/tilLocality"
                         android:layout_width="0dp"
-                        android:layout_marginTop="12dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/tilAddress"
+                        android:layout_marginTop="8dp"
+                        android:hint="Locality"
+                        app:hintTextColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@+id/tilStreet"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:hint="City">
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtCiry"
-                            android:inputType="textCapWords"
-                            android:text="Bangalore"
-                            android:background="@drawable/edit_field_bg"
+                            android:id="@+id/edtLocality"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:padding="16dp"
+                            android:background="@drawable/edit_field_bg"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilZipcode"
+                        android:id="@+id/tilState"
                         android:layout_width="0dp"
-                        android:layout_marginTop="12dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/tilCity"
+                        android:layout_marginTop="8dp"
+                        android:hint="State"
+                        app:hintTextColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@+id/tilLocality"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:hint="Zip Code">
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtZipcode"
-                            android:inputType="textCapWords"
-                            android:background="@drawable/edit_field_bg"
+                            android:id="@+id/edtState"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:padding="16dp"
+                            android:background="@drawable/edit_field_bg"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCountry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Country"
+                        app:hintTextColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@+id/tilState"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtCountry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:padding="16dp"
+                            android:background="@drawable/edit_field_bg"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilBio"
                         android:layout_width="0dp"
-                        android:layout_marginTop="12dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/tilZipcode"
+                        android:layout_marginTop="8dp"
+                        android:hint="Bio"
+                        app:hintTextColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@+id/tilCountry"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:hint="Bio">
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edtBio"
-                            android:inputType="textCapWords"
-                            android:singleLine="true"
-                            android:maxLines="1"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur sit feugiat turpis elit. "
-                            android:background="@drawable/edit_field_bg"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:padding="16dp"
+                            android:maxLines="5"
+                            android:lines="5"
+                            android:gravity="start|top"
+                            android:background="@drawable/edit_field_bg"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.button.MaterialButton
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnUpdateProfile"
                         android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:text="@string/strUpdate"
+                        android:textSize="17sp"
+                        android:textAllCaps="false"
                         android:layout_marginTop="20dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginBottom="12dp"
-                        android:layout_height="55dp"
-                        android:text="@string/strUpdate"
                         android:background="@drawable/button_bg"
+                        android:textColor="@color/colorWhite"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tilBio"/>
+                        app:layout_constraintTop_toBottomOf="@+id/tilBio"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

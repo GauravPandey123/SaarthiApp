@@ -76,4 +76,10 @@ If you have any concerns or queries, feel free to contact us at <contact details
     <string name="strCoronaCommunityText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur sit feugiat turpis elit. Cras duis euismod at vitae risus penatibus amet a, ut...</string>
     <string name="strDonateToCare">Donate To Care</string>
     <string name="strYesAccept">Yes</string>
+    <string name="strSubmitDonate">Submit</string>
+    <string name="strDonatationRequestText">Your request for donation has been submited successfully</string>
+    <string name="strDonateExecutiveCall">One of our executive will contact you within 48 Hours, for further information.</string>
+    <string name="strSaarthiLogoutText">Are you sure to exit from Saarthi App?</string>
+    <string name="strPushNotifyDescText">Change your prefrences of notifications for event, community or feeds update.</string>
+    <string name="strSendPushNotify">Send push notifications</string>
 </resources>

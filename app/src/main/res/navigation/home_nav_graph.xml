@@ -9,38 +9,30 @@
         android:id="@+id/saarthiHome"
         android:name="com.saarthiapp.android.ui.home.Home"
         android:label="SAARTHI"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_saarthiHome_to_searchVolunteerFrag"
-            app:destination="@id/searchVolunteerFrag" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/chatHome"
         android:name="com.saarthiapp.android.ui.home.Chat"
         android:label="Chat"
-        tools:layout="@layout/fragment_chat_home" >
-        <action
-            android:id="@+id/action_chatHome_to_searchVolunteerFrag"
-            app:destination="@id/searchVolunteerFrag" />
-    </fragment>
+        tools:layout="@layout/fragment_chat_home" />
+
     <fragment
         android:id="@+id/ourWork"
         android:name="com.saarthiapp.android.ui.ourWork.OurWork"
         android:label="Our Work"
-        tools:layout="@layout/fragment_our_work" >
-        <action
-            android:id="@+id/action_ourWork_to_searchVolunteerFrag"
-            app:destination="@id/searchVolunteerFrag" />
-    </fragment>
+        tools:layout="@layout/fragment_our_work" />
+
     <fragment
         android:id="@+id/myProfile"
         android:name="com.saarthiapp.android.ui.home.MyProfile"
         android:label="Profile"
-        tools:layout="@layout/fragment_my_profile" >
+        tools:layout="@layout/fragment_my_profile">
         <action
             android:id="@+id/action_myProfile_to_editProfileFrag"
             app:destination="@id/editProfileFrag" />
     </fragment>
+
     <fragment
         android:id="@+id/editProfileFrag"
         android:name="com.saarthiapp.android.ui.home.EditProfileFrag"
@@ -56,13 +48,45 @@
     <fragment
         android:id="@+id/rateOurApp"
         android:name="com.saarthiapp.android.ui.home.drawerFrag.RateOurApp"
-        android:label="RateOurApp"
+        android:label="Rate &amp; Feedback"
         tools:layout="@layout/fragment_rate_our_app"/>
 
     <fragment
         android:id="@+id/donateSaarthi"
         android:name="com.saarthiapp.android.ui.home.drawerFrag.Donate"
         android:label="Donate"
-        tools:layout="@layout/fragment_donate"/>
+        tools:layout="@layout/fragment_donate">
+        <action
+            android:id="@+id/action_donateSaarthi_to_donateSubmitionDialog"
+            app:destination="@id/donateSubmitionDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationSetting"
+        android:name="com.saarthiapp.android.ui.home.drawerFrag.NotificationSetting"
+        android:label="Notification Setting"
+        tools:layout="@layout/fragment_notification_setting"/>
+
+    <fragment
+        android:id="@+id/notifications"
+        android:name="com.saarthiapp.android.ui.home.drawerFrag.Notifications"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_notifications_to_notificationSetting"
+            app:destination="@id/notificationSetting" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/logoutDialogFrag"
+        android:name="com.saarthiapp.android.ui.popup.LogoutDialogFrag"
+        android:label="LogoutDialogFrag"
+        tools:layout="@layout/logout_popup_layout"/>
+
+    <dialog
+        android:id="@+id/donateSubmitionDialog"
+        android:name="com.saarthiapp.android.ui.popup.DonateSubmitionDialog"
+        android:label="DonateSubmitionDialog"
+        tools:layout="@layout/donation_popup_layout"/>
 
 </navigation>

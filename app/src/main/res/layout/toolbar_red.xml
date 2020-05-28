@@ -15,14 +15,14 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
+            android:id="@+id/toolbar_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="SAARTHI"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:gravity = "center"
-            android:id="@+id/toolbar_title" />
+            android:gravity = "center" />
 
     </androidx.appcompat.widget.Toolbar>
 

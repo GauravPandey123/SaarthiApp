@@ -36,7 +36,7 @@ class OurWork : Fragment(), View.OnClickListener {
 
         navController = Navigation.findNavController(view)
 
-        fragOurWorkBinding.clSearchVolunteerLayout.setOnClickListener(this)
+//        fragOurWorkBinding.clSearchVolunteerLayout.setOnClickListener(this)
     }
     private fun setFragmentStatePagerAdapter(){
         val adapter = OurWorkFragmentPagerAdapter(requireActivity().supportFragmentManager)
@@ -50,9 +50,9 @@ class OurWork : Fragment(), View.OnClickListener {
     override fun onClick(view: View?) {
         when(view){
 
-            fragOurWorkBinding.clSearchVolunteerLayout -> {
-                navController.navigate(R.id.action_ourWork_to_searchVolunteerFrag)
-            }
+            /*fragOurWorkBinding.clSearchVolunteerLayout -> {
+//                navController.navigate(R.id.action_ourWork_to_searchVolunteerFrag)
+            }*/
         }
     }
 
