@@ -40,7 +40,7 @@ class OurWork : Fragment(), View.OnClickListener {
     }
     private fun setFragmentStatePagerAdapter(){
         val adapter = OurWorkFragmentPagerAdapter(requireActivity().supportFragmentManager)
-        adapter.addFragment(FeedFrag(), "Feeds")
+        adapter.addFragment(FeedFrag(), "Stories")
         adapter.addFragment(CommunityFrag(), "Community")
         adapter.addFragment(EventFrag(), "Events")
         fragOurWorkBinding.vpOurWork.adapter = adapter

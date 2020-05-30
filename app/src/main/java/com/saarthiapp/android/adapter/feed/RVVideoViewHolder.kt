@@ -10,6 +10,6 @@ class RVVideoViewHolder(val videoPostBinding:FeedVideoPostLayoutBinding) : Recyc
     fun bindVideoData(postData:FeedPost){
         val videoUri = Uri.parse(postData.mediaContent)
      videoPostBinding.exoPlayerPostFeed.setVideoURI(videoUri)
-        videoPostBinding.exoPlayerPostFeed.start()
+//        videoPostBinding.exoPlayerPostFeed.start()
     }
 }

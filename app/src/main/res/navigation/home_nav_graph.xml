@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/chatHome"
-        android:name="com.saarthiapp.android.ui.home.Chat"
+        android:name="com.saarthiapp.android.ui.chat.Chat"
         android:label="Chat"
         tools:layout="@layout/fragment_chat_home" />
 

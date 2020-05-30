@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="imgItemData"
+            type="String" />
+    </data>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        app:loadImage="@{imgItemData}"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:civ_border_width="0.1dp"
+        app:civ_border_color="#FFFFFF"/>
+
+</layout>

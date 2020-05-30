@@ -8,8 +8,11 @@ import android.graphics.Typeface
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
@@ -60,4 +63,11 @@ fun TextView.setRobotoFontType(mCtx:Context){
     val typeFace = Typeface.createFromAsset(mCtx.assets,
         "fonts/Roboto-Regular.ttf")
     this.setTypeface(typeFace)
+}
+
+@BindingAdapter("loadImage")
+fun loadImageUsingGlide(imgView: ImageView, imgUrl:String?){
+    if(!imgUrl.isNullOrEmpty()){
+        Glide.with(imgView.context).load(imgUrl).into(imgView)
+    }
 }

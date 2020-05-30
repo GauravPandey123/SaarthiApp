@@ -25,6 +25,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.saarthiapp.android.R
 import com.saarthiapp.android.databinding.ActivityHomeBinding
 import com.saarthiapp.android.ui.popup.LogoutDialogFrag
+import com.saarthiapp.android.ui.popup.PostStoryDialog
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_CHAT_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_HOME_BOTTOM_NAVIGATION
 import com.saarthiapp.android.ui.utils.Constants.Companion.MEOW_OUT_WORK_BOTTOM_NAVIGATION
@@ -73,7 +74,8 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.setOnClickListener(this)
         actHomeBinding.includedCustomToolbarWithouSearch.imgHomeWithoutBack.setOnClickListener(this)
 
-        actHomeBinding.includedCustomToolbar.clToolbarWithSearch.setOnClickListener(this)
+        actHomeBinding.includedCustomToolbar.clSearchVolunteerViewSearching.setOnClickListener(this)
+        actHomeBinding.includedCustomToolbar.imgAddPost.setOnClickListener(this)
         actHomeBinding.includedCustomToolbar.imgAddPost.setOnClickListener(this)
         actHomeBinding.includedCustomToolbar.imgHomeNotification.setOnClickListener(this)
         actHomeBinding.includedCustomToolbar.imgHomeNavView.setOnClickListener(this)
@@ -256,6 +258,11 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     override fun onClick(p0: View?) {
         when(p0){
 
+            actHomeBinding.includedCustomToolbar.imgAddPost -> {
+                val postStoryDialog = PostStoryDialog()
+                postStoryDialog.show(this@HomeActivity.supportFragmentManager, "Post Story Popup")
+            }
+
             actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification -> {
                 navController.navigate(R.id.notifications)
             }
@@ -268,7 +275,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 navController.navigateUp()
             }
 
-            actHomeBinding.includedCustomToolbar.clToolbarWithSearch -> {
+            actHomeBinding.includedCustomToolbar.clSearchVolunteerViewSearching -> {
                 navController.navigate(R.id.searchVolunteerFrag)
             }
 
