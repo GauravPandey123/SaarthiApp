@@ -82,4 +82,5 @@ If you have any concerns or queries, feel free to contact us at <contact details
     <string name="strSaarthiLogoutText">Are you sure to exit from Saarthi App?</string>
     <string name="strPushNotifyDescText">Change your prefrences of notifications for event, community or feeds update.</string>
     <string name="strSendPushNotify">Send push notifications</string>
+    <string name="strChatHintMsg">Type your message</string>
 </resources>

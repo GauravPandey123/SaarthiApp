@@ -6,28 +6,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.saarthiapp.android.R
 import com.saarthiapp.android.adapter.chat.ChatImageViewAdapter
-import com.saarthiapp.android.databinding.FragmentChatHomeBinding
-import com.saarthiapp.android.ui.utils.RecyclerViewItemSpacingDecoration
+import com.saarthiapp.android.adapter.chat.ChatMemberViewAdapter
+import com.saarthiapp.android.databinding.FragmentUpcomingEventBinding
 
-class Chat : Fragment() {
+class UpcomingEvent : Fragment() {
 
-    private lateinit var fragChatHomeBinding:FragmentChatHomeBinding
+    private lateinit var fragUpcomingEvent: FragmentUpcomingEventBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        fragUpcomingEvent = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_upcoming_event, container, false)
+        return fragUpcomingEvent.root
+    }
 
-        fragChatHomeBinding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_chat_home, container, false)
-
-staticImageData()
-        return fragChatHomeBinding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        staticImageData()
     }
 
     private fun staticImageData(){
@@ -41,31 +44,12 @@ staticImageData()
         imgActorList.add("https://static01.nyt.com/images/2013/05/06/world/asia/06-ranbir-kapoor-IndiaInk/06-ranbir-kapoor-IndiaInk-superJumbo.jpg")
         imgActorList.add("https://i.pinimg.com/originals/f8/77/47/f87747b29fc4d94da8ff2b96cdc805ed.jpg")
 
-        val chatImageAdapter = ChatImageViewAdapter(requireContext(), imgActorList)
+        val chatImageAdapter = ChatMemberViewAdapter(requireContext(), imgActorList)
         val layoutManagerSosHelp = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-        fragChatHomeBinding.recViewSOSChat1.apply {
+        fragUpcomingEvent.recViewMemberJoined.apply {
             layoutManager = layoutManagerSosHelp
-            addItemDecoration(RecyclerViewItemSpacingDecoration(0,-64,0, 0))
+            itemAnimator = DefaultItemAnimator()
             hasFixedSize()
-
-            adapter = chatImageAdapter
-        }
-
-        val layoutManagerCommunity1 = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-        fragChatHomeBinding.recViewCommunity1.apply {
-            layoutManager = layoutManagerCommunity1
-            addItemDecoration(RecyclerViewItemSpacingDecoration(0,-64,0, 0))
-            hasFixedSize()
-
-            adapter = chatImageAdapter
-        }
-
-        val layoutManagerCommunity2 = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-        fragChatHomeBinding.recViewCommunity2.apply {
-            layoutManager = layoutManagerCommunity2
-            addItemDecoration(RecyclerViewItemSpacingDecoration(0,-64,0, 0))
-            hasFixedSize()
-
             adapter = chatImageAdapter
         }
     }
