@@ -14,19 +14,21 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.saarthiapp.android.R
 import com.saarthiapp.android.adapter.chat.ChatMemberViewAdapter
 import com.saarthiapp.android.adapter.chat.CommunityStoryAdapter
-import com.saarthiapp.android.databinding.FragmentJoinedCommunityBinding
+import com.saarthiapp.android.databinding.FragmentSuggestedCommunityBinding
 
-class JoinedCommunity : Fragment() {
+class SuggestedCommunity : Fragment() {
 
-    private lateinit var fragJoinedCommunityBinding:FragmentJoinedCommunityBinding
+    private lateinit var fragSuggestedCommBinding:FragmentSuggestedCommunityBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        fragJoinedCommunityBinding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_joined_community, container, false)
+        fragSuggestedCommBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_suggested_community, container, false)
         setupRecyclerView()
-        return fragJoinedCommunityBinding.root
+
+        return fragSuggestedCommBinding.root
     }
 
     private fun setupRecyclerView(){
@@ -42,16 +44,17 @@ class JoinedCommunity : Fragment() {
 
         val chatImageAdapter = ChatMemberViewAdapter(requireContext(), imgActorList)
         val layoutManagerMembers = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-        fragJoinedCommunityBinding.recViewMemberJoined.apply {
+        fragSuggestedCommBinding.recViewMemberJoined.apply {
             layoutManager = layoutManagerMembers
             itemAnimator = DefaultItemAnimator()
             hasFixedSize()
+
             adapter = chatImageAdapter
         }
 
         val suggestedCommunityAdapter = CommunityStoryAdapter(requireContext(), imgActorList)
-        val layoutManagerCommunityStory = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-        fragJoinedCommunityBinding.recViewCommunityImages.apply {
+        val layoutManagerCommunityStory = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        fragSuggestedCommBinding.recViewCommunityImages.apply {
             layoutManager = layoutManagerCommunityStory
             itemAnimator = DefaultItemAnimator()
             hasFixedSize()

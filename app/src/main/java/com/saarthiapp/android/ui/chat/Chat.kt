@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -14,19 +16,21 @@ import com.saarthiapp.android.adapter.chat.ChatImageViewAdapter
 import com.saarthiapp.android.databinding.FragmentChatHomeBinding
 import com.saarthiapp.android.ui.utils.RecyclerViewItemSpacingDecoration
 
-class Chat : Fragment() {
+class Chat : Fragment(), View.OnClickListener {
 
     private lateinit var fragChatHomeBinding:FragmentChatHomeBinding
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        fragChatHomeBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_chat_home, container, false
+        )
+        staticImageData()
 
-        fragChatHomeBinding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_chat_home, container, false)
-
-staticImageData()
         return fragChatHomeBinding.root
     }
 
@@ -67,6 +71,37 @@ staticImageData()
             hasFixedSize()
 
             adapter = chatImageAdapter
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
+
+        fragChatHomeBinding.clChatSaarthiGroup.setOnClickListener(this)
+        fragChatHomeBinding.clChatFightAgainstGroup.setOnClickListener(this)
+        fragChatHomeBinding.tvCommunityName1Text.setOnClickListener(this)
+        fragChatHomeBinding.tvCommunityName2Text.setOnClickListener(this)
+    }
+
+    override fun onClick(p0: View?) {
+        when(p0){
+
+            fragChatHomeBinding.clChatFightAgainstGroup -> {
+                navController.navigate(R.id.action_chatHome_to_communityChat)
+            }
+
+            fragChatHomeBinding.clChatSaarthiGroup -> {
+                navController.navigate(R.id.action_chatHome_to_communityChat)
+            }
+
+            fragChatHomeBinding.tvCommunityName1Text -> {
+             navController.navigate(R.id.action_chatHome_to_suggestedCommunity)
+            }
+
+            fragChatHomeBinding.tvCommunityName2Text -> {
+                navController.navigate(R.id.action_chatHome_to_suggestedCommunity)
+            }
         }
     }
 }

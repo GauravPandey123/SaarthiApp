@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -186,7 +185,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clShareCommunity"
+                    android:id="@+id/clJoinCommunity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_bg"
@@ -198,7 +197,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/clCommunityStoryLayout">
 
                     <TextView
-                        android:text="@string/strShare"
+                        android:text="@string/strJoin"
                         android:textSize="18sp"
                         android:padding="12dp"
                         android:textColor="@color/colorWhite"
@@ -212,19 +211,19 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clLeaveCommunity"
+                    android:id="@+id/clShareCommunity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/share_btn_bg"
                     android:layout_margin="16dp"
                     app:layout_constraintLeft_toRightOf="@+id/gl4Community"
                     app:layout_constraintRight_toLeftOf="@+id/gl96Community"
-                    app:layout_constraintTop_toBottomOf="@+id/clShareCommunity"
+                    app:layout_constraintTop_toBottomOf="@+id/clJoinCommunity"
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <TextView
                         android:id="@+id/tvNextIntroSlider"
-                        android:text="Leave"
+                        android:text="@string/strShare"
                         android:textSize="18sp"
                         android:padding="12dp"
                         android:textColor="@color/buttonColor"

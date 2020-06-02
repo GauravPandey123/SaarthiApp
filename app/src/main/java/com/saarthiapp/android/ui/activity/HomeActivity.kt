@@ -177,6 +177,51 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
             actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.VISIBLE
             actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.text = destination.label
+        }else if (destination.id == R.id.communityChat) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        }else if (destination.id == R.id.upcomingEvent) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        }else if (destination.id == R.id.chatMembers) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        }else if (destination.id == R.id.suggestedCommunity) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        } else if (destination.id == R.id.joinedCommunity) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
         }else  if (destination.id == R.id.ourWork) {
             actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.GONE
             actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE

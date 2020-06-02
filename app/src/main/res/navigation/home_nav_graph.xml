@@ -15,7 +15,14 @@
         android:id="@+id/chatHome"
         android:name="com.saarthiapp.android.ui.chat.Chat"
         android:label="Chat"
-        tools:layout="@layout/fragment_chat_home" />
+        tools:layout="@layout/fragment_chat_home" >
+        <action
+            android:id="@+id/action_chatHome_to_suggestedCommunity"
+            app:destination="@id/suggestedCommunity" />
+        <action
+            android:id="@+id/action_chatHome_to_communityChat"
+            app:destination="@id/communityChat" />
+    </fragment>
 
     <fragment
         android:id="@+id/ourWork"
@@ -88,5 +95,45 @@
         android:name="com.saarthiapp.android.ui.popup.DonateSubmitionDialog"
         android:label="DonateSubmitionDialog"
         tools:layout="@layout/donation_popup_layout"/>
+    <fragment
+        android:id="@+id/joinedCommunity"
+        android:name="com.saarthiapp.android.ui.chat.JoinedCommunity"
+        android:label="JoinedCommunity"
+        tools:layout="@layout/fragment_joined_community">
+        <action
+            android:id="@+id/action_joinedCommunity_to_chatMembers"
+            app:destination="@id/chatMembers" />
+    </fragment>
+    <fragment
+        android:id="@+id/suggestedCommunity"
+        android:name="com.saarthiapp.android.ui.chat.SuggestedCommunity"
+        android:label="SuggestedCommunity"
+        tools:layout="@layout/fragment_suggested_community">
+        <action
+            android:id="@+id/action_suggestedCommunity_to_chatMembers"
+            app:destination="@id/chatMembers" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatMembers"
+        android:name="com.saarthiapp.android.ui.chat.ChatMembers"
+        android:label="fragment_chat_members"
+        tools:layout="@layout/fragment_chat_members" />
+
+    <fragment
+        android:id="@+id/upcomingEvent"
+        android:name="com.saarthiapp.android.ui.chat.UpcomingEvent"
+        android:label="UpcomingEvent"
+        tools:layout="@layout/fragment_upcoming_event"/>
+
+    <fragment
+        android:id="@+id/communityChat"
+        android:name="com.saarthiapp.android.ui.chat.CommunityChat"
+        android:label="CommunityChat"
+        tools:layout="@layout/fragment_community_chat">
+        <action
+            android:id="@+id/action_communityChat_to_upcomingEvent"
+            app:destination="@id/upcomingEvent" />
+    </fragment>
 
 </navigation>

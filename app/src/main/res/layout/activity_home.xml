@@ -24,6 +24,10 @@
                app:layout_constraintRight_toRightOf="parent">
 
                <include
+                   android:id="@+id/includecCustomToolbarWithNote"
+                   layout="@layout/custom_home_toolbar_with_note"/>
+
+               <include
                    android:id="@+id/includedCustomToolbar"
                    layout="@layout/custom_home_toolbar_layout" />
 
