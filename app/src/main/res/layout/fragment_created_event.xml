@@ -290,7 +290,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/clJoinCommunity"
+                        android:id="@+id/clShareEvent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_bg"
@@ -302,7 +302,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/clMembersLayout">
 
                         <TextView
-                            android:text="@string/strJoin"
+                            android:text="@string/strShare"
                             android:textSize="18sp"
                             android:padding="12dp"
                             android:textColor="@color/colorWhite"
@@ -317,7 +317,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/clShareCommunity"
+                        android:id="@+id/clEditEvent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/share_btn_bg"
@@ -327,11 +327,11 @@
                         android:layout_marginBottom="12dp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/clJoinCommunity"
+                        app:layout_constraintTop_toBottomOf="@+id/clShareEvent"
                         app:layout_constraintBottom_toBottomOf="parent">
 
                         <TextView
-                            android:text="@string/strShare"
+                            android:text="Edit"
                             android:textSize="18sp"
                             android:padding="12dp"
                             android:textColor="@color/buttonColor"

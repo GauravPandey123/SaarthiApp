@@ -53,7 +53,7 @@ class SuggestedCommunity : Fragment() {
         }
 
         val suggestedCommunityAdapter = CommunityStoryAdapter(requireContext(), imgActorList)
-        val layoutManagerCommunityStory = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManagerCommunityStory = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         fragSuggestedCommBinding.recViewCommunityImages.apply {
             layoutManager = layoutManagerCommunityStory
             itemAnimator = DefaultItemAnimator()

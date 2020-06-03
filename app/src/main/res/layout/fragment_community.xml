@@ -1,25 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.ourWork.ourWorkFrag.CommunityFrag">
+        android:background="#55dfdfdf">
 
-        <TextView
-            android:text="Saarthi Community"
-            android:textStyle="normal"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl4Community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.03"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl96Community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.97"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clJoinedCommunityTopLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCoronaPoster"
+                        android:layout_width="0dp"
+                        android:layout_height="260dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/community_created"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:text="Fight Against Corona"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="18sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginBottom="6dp"
+                            android:src="@drawable/community_created"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/tvAwarenessAboutCorona"/>
+
+                        <TextView
+                            android:id="@+id/tvAwarenessAboutCorona"
+                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                            android:textColor="#00B2FF"
+                            android:textSize="12sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:src="@drawable/community_created"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/tvCoronaCommunityText"
+                        android:text="@string/strCoronaCommunityText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:padding="10dp"
+                        android:layout_margin="6dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/clCoronaPoster"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clMembersLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/clJoinedCommunityTopLayout"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
+
+                    <TextView
+                        android:id="@+id/tvMemberJoined"
+                        android:text="Members"
+                        android:textSize="17sp"
+                        android:textStyle="normal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:gravity="start"
+                        android:drawableEnd="@drawable/ic_keyboard_arrow_right"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recViewMemberJoined"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvMemberJoined"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clCommunityStoryLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/clMembersLayout"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
+
+                    <TextView
+                        android:id="@+id/tvCommuntiyStoryText"
+                        android:text="Stories of people in this community"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:gravity="start"
+                        android:drawableEnd="@drawable/ic_keyboard_arrow_right"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recViewCommunityImages"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCommuntiyStoryText"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clMoreRelatedCommunityLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/clCommunityStoryLayout"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
+
+                    <TextView
+                        android:id="@+id/tvRelatedCommuntiyText"
+                        android:text="More Related Communites"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:gravity="start"
+                        android:drawableEnd="@drawable/ic_keyboard_arrow_right"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recViewMoreRelatedCommunity"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvRelatedCommuntiyText"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clJoinCommunity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community"
+                    app:layout_constraintTop_toBottomOf="@+id/clMoreRelatedCommunityLayout">
+
+                    <TextView
+                        android:text="@string/strJoin"
+                        android:textSize="18sp"
+                        android:padding="12dp"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clShareCommunity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/share_btn_bg"
+                    android:layout_margin="16dp"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community"
+                    app:layout_constraintTop_toBottomOf="@+id/clJoinCommunity"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvNextIntroSlider"
+                        android:text="@string/strShare"
+                        android:textSize="18sp"
+                        android:padding="12dp"
+                        android:textColor="@color/buttonColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
