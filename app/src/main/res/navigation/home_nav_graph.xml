@@ -135,5 +135,36 @@
             android:id="@+id/action_communityChat_to_upcomingEvent"
             app:destination="@id/upcomingEvent" />
     </fragment>
+    <fragment
+        android:id="@+id/createNewEvent"
+        android:name="com.saarthiapp.android.ui.ourWork.ourWorkFrag.eventFrag.CreateNewEvent"
+        android:label="CreateNewEvent"
+        tools:layout="@layout/fragment_create_new_event">
+        <action
+            android:id="@+id/action_createNewEvent_to_createdEvent"
+            app:destination="@id/createdEvent" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFrag"
+        android:name="com.saarthiapp.android.ui.ourWork.ourWorkFrag.EventFrag"
+        android:label="EventFrag"
+        tools:layout="@layout/fragment_event">
+        <action
+            android:id="@+id/action_eventFrag_to_createNewEvent"
+            app:destination="@id/createNewEvent" />
+    </fragment>
+    <fragment
+        android:id="@+id/createdEvent"
+        android:name="com.saarthiapp.android.ui.ourWork.ourWorkFrag.eventFrag.CreatedEvent"
+        android:label="CreatedEvent"
+        tools:layout="@layout/fragment_created_event"/>
+    <fragment
+        android:id="@+id/communityFrag"
+        android:name="com.saarthiapp.android.ui.ourWork.ourWorkFrag.CommunityFrag"
+        android:label="CommunityFrag" />
+    <fragment
+        android:id="@+id/feedFrag"
+        android:name="com.saarthiapp.android.ui.ourWork.ourWorkFrag.FeedFrag"
+        android:label="FeedFrag" />
 
 </navigation>

@@ -157,7 +157,6 @@
                         android:padding="10dp"
                         android:layout_margin="2dp"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvAboutEvent"/>
 
@@ -165,46 +164,176 @@
                         android:id="@+id/viewEvent1"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/colorLightGrey"
                         app:layout_constraintTop_toBottomOf="@+id/tvAboutEventDesc"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clMembersLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintTop_toBottomOf="@+id/clJoinedCommunityTopLayout"
-                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
-                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
-
-                    <TextView
-                        android:id="@+id/tvMemberJoined"
-                        android:text="Members"
-                        android:textSize="17sp"
-                        android:textStyle="normal"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clAddPostStoryLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginEnd="6dp"
-                        android:gravity="start"
-                        android:drawableEnd="@drawable/ic_keyboard_arrow_right"
-                        android:textColor="@color/colorBlack"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:padding="6dp"
+                        android:background="@color/colorWhite"
+                        app:layout_constraintTop_toBottomOf="@+id/viewEvent1"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvPostFeeds"
+                            android:text="Post your story or comment on this event"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imgFeedUser"
+                            android:src="@drawable/profile_image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="6dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPostFeeds"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintLeft_toRightOf="@+id/imgFeedUser"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPostFeeds"
+                            app:layout_constraintTop_toTopOf="@+id/imgFeedUser"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgFeedUser">
+
+                            <TextView
+                                android:id="@+id/tvWhatHappen"
+                                android:text="What’s happening ?"
+                                android:textSize="20sp"
+                                android:layout_marginStart="12dp"
+                                android:textColor="@color/colorBlack"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/tvUsername"
+                                android:text="Karam"
+                                android:textSize="14sp"
+                                android:layout_marginStart="12dp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvWhatHappen"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtWriteMsgHere"
+                            android:backgroundTint="#f6f6f6"
+                            android:padding="12dp"
+                            android:textSize="16sp"
+                            android:background="@drawable/edit_field_bg"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginTop="16dp"
+                            android:inputType="textCapWords"
+                            android:hint="Write here...."
+                            android:lines="1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/imgAddPost"
+                            app:layout_constraintTop_toBottomOf="@+id/imgFeedUser"/>
+
+                        <ImageButton
+                            android:id="@+id/imgAddPost"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:tint="@color/colorWhite"
+                            android:src="@drawable/ic_add"
+                            android:background="@drawable/add_post_image_bg"
+                            app:layout_constraintTop_toTopOf="@+id/edtWriteMsgHere"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@+id/edtWriteMsgHere"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnPostYourStory"
+                            android:textColor="@color/colorWhite"
+                            android:text="Post"
+                            android:textSize="18sp"
+                            android:textAllCaps="false"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_bg"
+                            app:rippleColor="@color/buttonColor"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/edtWriteMsgHere"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginTop="12dp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/viewEvent2"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/colorLightGrey"
+                        app:layout_constraintTop_toBottomOf="@+id/clAddPostStoryLayout"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"/>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recViewMemberJoined"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clMembersLayout"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintTop_toBottomOf="@+id/tvMemberJoined"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/viewEvent2"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvMemberJoined"
+                            android:text="Comments by volunteers:"
+                            android:textSize="17sp"
+                            android:textStyle="normal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:gravity="start"
+                            android:textColor="@color/colorLightGrey"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recViewCommentByVolunteer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvMemberJoined"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
