@@ -1,4 +1,4 @@
-package com.saarthiapp.android.ui.home
+package com.saarthiapp.android.ui.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

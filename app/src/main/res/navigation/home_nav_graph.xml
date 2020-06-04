@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/myProfile"
-        android:name="com.saarthiapp.android.ui.home.MyProfile"
+        android:name="com.saarthiapp.android.ui.profile.MyProfile"
         android:label="Profile"
         tools:layout="@layout/fragment_my_profile">
         <action
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/editProfileFrag"
-        android:name="com.saarthiapp.android.ui.home.EditProfileFrag"
+        android:name="com.saarthiapp.android.ui.profile.EditProfileFrag"
         android:label="Edit Profile"
         tools:layout="@layout/fragment_edit_profile"/>
 

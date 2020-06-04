@@ -1,4 +1,4 @@
-package com.saarthiapp.android.ui.home
+package com.saarthiapp.android.ui.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -22,7 +22,8 @@ class MyProfile : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        fragMyProfileBindging = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
+        fragMyProfileBindging = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_my_profile, container, false)
         return fragMyProfileBindging.root
     }
 

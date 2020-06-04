@@ -50,11 +50,13 @@ android {
 }
 
 dependencies {
+
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta6'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.google.firebase:firebase-database:19.3.0'
@@ -116,7 +118,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.1'
 
 
-    def material_version = "1.2.0-alpha06"
+    def material_version = "1.3.0-alpha01"
     implementation "com.google.android.material:material:$material_version"
 
     // material dialogs
@@ -124,7 +126,7 @@ dependencies {
     implementation "com.afollestad.material-dialogs:core:$matieral_dialogs_version"
 
     // Leak Canary
-    def leak_canary_version = "2.0-alpha-3"
+    def leak_canary_version = "2.3"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
 
     // (Recommended) Add the Google Analytics dependency.
