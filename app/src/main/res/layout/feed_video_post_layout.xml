@@ -2,10 +2,21 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="url"
+            type="String"/>
+
+        <variable
+            name="callback"
+            type="com.saarthiapp.android.ui.utils.exoplayer.PlayerStateCallback"/>
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite">
+        android:background="@color/colorWhite"
+        android:keepScreenOn="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clPostImageLayout"
@@ -18,71 +29,126 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgFeedImageUser"
                 android:src="@drawable/profile_image"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="5dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
-                android:id="@+id/tvPostImageUsername"
-                android:text="John Doe"
-                android:textSize="17sp"
-                android:textColor="@color/colorBlack"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintLeft_toRightOf="@+id/imgFeedImageUser"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imgFeedImageUser"
-                app:layout_constraintLeft_toRightOf="@+id/imgFeedImageUser"/>
+                app:layout_constraintBottom_toBottomOf="@+id/imgFeedImageUser">
 
-            <TextView
-                android:id="@+id/tvPostImageLocation"
-                android:text="Bangalore"
-                android:textSize="12sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/tvPostImageUsername"
-                app:layout_constraintLeft_toRightOf="@+id/imgFeedImageUser" />
+                <TextView
+                    android:id="@+id/tvPostImageUsername"
+                    android:text="John Doe"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tvPostImageLocation"
+                    android:text="Bangalore"
+                    android:textSize="12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPostImageUsername"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <ImageView
+                    android:src="@drawable/ic_more_member"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- <com.google.android.exoplayer2.ui.PlayerView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clVidoePlayerContainer"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@+id/clPostImageLayout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <ImageView
+                android:src="@drawable/ic_video_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:translationZ="2dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@+id/imgPostFeeds"
+                app:layout_constraintLeft_toLeftOf="@+id/imgPostFeeds"
+                app:layout_constraintRight_toRightOf="@+id/imgPostFeeds"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPostFeeds"/>
+
+            <ImageView
+                android:id="@+id/imgPostFeeds"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/post_video_image_preview"
+                android:scaleType="centerCrop"
+                android:layout_margin="6dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/exoPlayerPostFeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                app:resize_mode="fill"
+                app:video_url="@{url}"
+                app:controller_layout_id="@layout/exo_playback_control_view"
+                app:on_state_change="@{callback}"
+                android:src="@drawable/post_video_image_preview"
+                android:scaleType="centerCrop"
+                android:layout_margin="6dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--<VideoView
             android:id="@+id/exoPlayerPostFeed"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:src="@drawable/post_image"
-            android:scaleType="centerCrop"
             android:layout_margin="6dp"
             app:layout_constraintTop_toBottomOf="@+id/clPostImageLayout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>-->
 
-        <VideoView
-            android:id="@+id/exoPlayerPostFeed"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_margin="6dp"
-            app:layout_constraintTop_toBottomOf="@+id/clPostImageLayout"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clPostLikeORComment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/exoPlayerPostFeed"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/clVidoePlayerContainer"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent">
 
             <ImageView
                 android:id="@+id/imgPostFeedLike"
-                android:src="@drawable/ic_favorite_post_feed"
+                android:src="@drawable/ic_clap_appreciation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -93,7 +159,7 @@
                 android:id="@+id/imgPostFeedComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="14dp"
                 android:src="@drawable/ic_post_comment"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/imgPostFeedLike"/>
@@ -101,13 +167,25 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+            android:id="@+id/tvAppreciationCount"
+            android:text="64 appreciations"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/clPostLikeORComment"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur sit feugiat turpis elit. Cras duis euismod at vitae risus penatibus amet a, ut... "
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/clPostLikeORComment"
             android:textColor="#404040"
-            android:padding="15dp"
+            android:padding="12dp"
             android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppreciationCount"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
 

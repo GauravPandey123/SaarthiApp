@@ -27,7 +27,9 @@ class FeedFrag : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        fragFeedBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false)
+        fragFeedBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_feed, container, false)
+
         setFeedStaticData()
         setUpRecyclerView()
         return fragFeedBinding.root
@@ -47,6 +49,7 @@ class FeedFrag : Fragment() {
             itemAnimator = DefaultItemAnimator()
             hasFixedSize()
             adapter = feedAdapter
+            smoothScrollToPosition(0)
         }
     }
 

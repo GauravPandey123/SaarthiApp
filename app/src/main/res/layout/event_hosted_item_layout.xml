@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="eventHostModel"
+            type="com.saarthiapp.android.model.event.EventHostData" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,13 +26,15 @@
             android:background="@color/colorWhite">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 app:cardCornerRadius="12dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/gl25JoinedCommunity">
+                >
+
+                <!--app:layout_constraintRight_toLeftOf="@+id/gl25JoinedCommunity"-->
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -42,34 +50,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.25"/>
+                app:layout_constraintGuide_percent="0.28"/>
 
             <TextView
                 android:id="@+id/tvBeSaarthiJoinCommunity"
-                android:text="Be A Saarthi"
+                android:text="@{eventHostModel.eventTitle}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textColor="#0E0E0E"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/gl25JoinedCommunity"
-                app:layout_constraintRight_toLeftOf="@+id/gl74JoinedCommunity"/>
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <TextView
                 android:id="@+id/tvBeSaarthiJoinCommunityDesc"
-                android:text="Be a charioteer of hope in helping the community around you."
+                android:text="@{eventHostModel.eventDesc}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="#858585"
                 android:layout_marginTop="2dp"
+                android:lines="2"
+                android:maxLines="2"
+                android:ellipsize="end"
                 app:layout_constraintTop_toBottomOf="@+id/tvBeSaarthiJoinCommunity"
                 app:layout_constraintLeft_toRightOf="@+id/gl25JoinedCommunity"
                 app:layout_constraintRight_toRightOf="parent"/>
 
             <TextView
                 android:id="@+id/tvJoinedMemberCount"
-                android:text="23 Joined"
+                android:text="@{String.valueOf(eventHostModel.joinedMember).concat(@string/joinedText)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"

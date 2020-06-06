@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_myProfile_to_editProfileFrag"
             app:destination="@id/editProfileFrag" />
+        <action
+            android:id="@+id/action_myProfile_to_eventHostedView"
+            app:destination="@id/eventHostedView" />
     </fragment>
 
     <fragment
@@ -161,10 +164,35 @@
     <fragment
         android:id="@+id/communityFrag"
         android:name="com.saarthiapp.android.ui.ourWork.ourWorkFrag.CommunityFrag"
-        android:label="CommunityFrag" />
+        android:label="CommunityFrag"
+        tools:layout="@layout/fragment_community"/>
     <fragment
         android:id="@+id/feedFrag"
         android:name="com.saarthiapp.android.ui.ourWork.ourWorkFrag.FeedFrag"
-        android:label="FeedFrag" />
+        android:label="FeedFrag"
+        tools:layout="@layout/fragment_feed"/>
+    <fragment
+        android:id="@+id/eventHostedView"
+        android:name="com.saarthiapp.android.ui.profile.frag.EventHostedView"
+        android:label="EventHostedView"
+        tools:layout="@layout/fragment_event_hosted_view">
+        <action
+            android:id="@+id/action_eventHostedView_to_eventHostedDetail"
+            app:destination="@id/eventHostedDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventHostedDetail"
+        android:name="com.saarthiapp.android.ui.profile.frag.EventHostedDetail"
+        android:label="EventHostedDetail"
+        tools:layout="@layout/fragment_event_hosted_detail">
+        <action
+            android:id="@+id/action_eventHostedDetail_to_eventHostedAddUpdate"
+            app:destination="@id/eventHostedAddUpdate" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventHostedAddUpdate"
+        android:name="com.saarthiapp.android.ui.profile.frag.EventHostedAddUpdate"
+        android:label="EventHostedAddUpdate"
+        tools:layout="@layout/fragment_event_hosted_add_update"/>
 
 </navigation>

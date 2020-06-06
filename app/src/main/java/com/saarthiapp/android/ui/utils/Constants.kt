@@ -22,5 +22,9 @@ class Constants {
         const val MEOW_OUT_WORK_BOTTOM_NAVIGATION = 1
         const val MEOW_CHAT_BOTTOM_NAVIGATION = 2
         const val MEOW_PROFILE_BOTTOM_NAVIGATION = 3
+
+        //Exoplayer cache value
+        const val MAX_CACHE_SIZE = 100 * 1024 * 1024L
+        const val MAX_FILE_SIZE = 5 * 1024 * 1024L
     }
 }
