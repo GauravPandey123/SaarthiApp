@@ -9,7 +9,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_video_play"
+        android:src="@drawable/ic_play_post_video"
         style="@style/ExoMediaButton.Play"/>
 
     <!--
@@ -19,7 +19,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:visibility="visible"
-        android:src="@drawable/ic_pause_video"
+        android:src="@drawable/ic_pause_post"
         style="@style/ExoMediaButton.Pause"/>
 
 </FrameLayout>

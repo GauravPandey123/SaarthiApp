@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.profile.frag.MyStories">
+        android:background="#F6F6F6">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftFeedGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightFeedGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.97"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recViewMyStories"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toRightOf="@+id/leftFeedGuideline"
+            app:layout_constraintRight_toLeftOf="@+id/rightFeedGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

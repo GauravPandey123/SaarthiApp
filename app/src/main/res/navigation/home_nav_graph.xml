@@ -41,6 +41,12 @@
         <action
             android:id="@+id/action_myProfile_to_eventHostedView"
             app:destination="@id/eventHostedView" />
+        <action
+            android:id="@+id/action_myProfile_to_myStories"
+            app:destination="@id/myStories" />
+        <action
+            android:id="@+id/action_myProfile_to_myCommunity"
+            app:destination="@id/myCommunity" />
     </fragment>
 
     <fragment
@@ -174,7 +180,7 @@
     <fragment
         android:id="@+id/eventHostedView"
         android:name="com.saarthiapp.android.ui.profile.frag.EventHostedView"
-        android:label="EventHostedView"
+        android:label="Events"
         tools:layout="@layout/fragment_event_hosted_view">
         <action
             android:id="@+id/action_eventHostedView_to_eventHostedDetail"
@@ -194,5 +200,17 @@
         android:name="com.saarthiapp.android.ui.profile.frag.EventHostedAddUpdate"
         android:label="EventHostedAddUpdate"
         tools:layout="@layout/fragment_event_hosted_add_update"/>
+
+    <fragment
+        android:id="@+id/myCommunity"
+        android:name="com.saarthiapp.android.ui.profile.frag.MyCommunity"
+        android:label="Communities"
+        tools:layout="@layout/fragment_my_community"/>
+
+    <fragment
+        android:id="@+id/myStories"
+        android:name="com.saarthiapp.android.ui.profile.frag.MyStories"
+        android:label="My Story"
+        tools:layout="@layout/fragment_my_stories"/>
 
 </navigation>

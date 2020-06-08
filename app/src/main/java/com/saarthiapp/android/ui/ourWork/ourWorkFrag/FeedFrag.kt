@@ -53,6 +53,16 @@ class FeedFrag : Fragment() {
         }
     }
 
+    /*final List<String> list = new ArrayList<>();
+        list.add("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+        list.add("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+        list.add("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+        list.add("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+        list.add("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+        list.add("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+        final VideoAdapter adapter = new VideoAdapter(list, this);
+        videoList.setAdapter(adapter)*/
+
     private fun setFeedStaticData(){
         feedPostList = ArrayList()
         feedPostList?.add(FeedPost("John Abraham", "Bangalore", "image", "https://projects.adsandurl.com/notebook-dev/public/uploads/Banner/twm6JBslide1.jpg", "","Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur sit feugiat turpis elit. Cras duis euismod at vitae risus penatibus amet a, ut..."))

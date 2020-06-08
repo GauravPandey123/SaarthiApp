@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -69,6 +70,7 @@
                     app:layout_constraintRight_toRightOf="parent"/>
 
                 <ImageView
+                    android:id="@+id/imgMoreOptionVideoHolder"
                     android:src="@drawable/ic_more_member"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -117,6 +119,7 @@
                 android:visibility="visible"
                 app:resize_mode="fill"
                 app:video_url="@{url}"
+                app:surface_type="texture_view"
                 app:controller_layout_id="@layout/exo_playback_control_view"
                 app:on_state_change="@{callback}"
                 android:src="@drawable/post_video_image_preview"

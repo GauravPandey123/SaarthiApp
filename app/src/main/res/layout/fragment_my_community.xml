@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.profile.frag.MyCommunity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#E5E5E5"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.community.frag.Communities">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl4Community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.04"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl96Community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.96"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clJoinCommunity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
+
+                    <TextView
+                        android:id="@+id/tvJoined"
+                        android:text="Joined"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:padding="6dp"
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clJoined1Community"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvJoined"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/colorWhite">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            app:cardCornerRadius="12dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/saarthi_community"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl25JoinedCommunity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.30"/>
+
+                        <TextView
+                            android:id="@+id/tvBeSaarthiJoinCommunity"
+                            android:text="Be A Saarthi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:textColor="#0E0E0E"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25JoinedCommunity"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvBeSaarthiJoinCommunityDesc"
+                            android:text="Be a charioteer of hope in helping the community around you."
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            app:layout_constraintTop_toBottomOf="@+id/tvBeSaarthiJoinCommunity"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25JoinedCommunity"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvBeSaarthiJoinCommunityMembers"
+                            android:text="123 Members"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            android:layout_marginTop="12dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvBeSaarthiJoinCommunityDesc"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25JoinedCommunity"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clJoined2Community"
+                        android:layout_width="0dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/clJoined1Community"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/colorWhite">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            app:cardCornerRadius="12dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/community_created"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl25Community2Join"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.30"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl80Community2Join"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.68"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity2Join"
+                            android:text="Fight Against Corona"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:textColor="#0E0E0E"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community2Join"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Desc2Join"
+                            android:text="Lorem ipsum dolor sit amet, con sectetur adipiscing eli."
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity2Join"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community2Join"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community2Join"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Members2Join"
+                            android:text="123 Members"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            android:layout_marginTop="12dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity1Desc2Join"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community2Join"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community2Join"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Join2Join"
+                            android:text="leave"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_marginStart="6dp"
+                            android:textColor="@color/buttonColor"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl80Community2Join"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clRequestedCommunity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintTop_toBottomOf="@+id/clJoinCommunity"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
+
+                    <TextView
+                        android:id="@+id/tvRequestCommunityText"
+                        android:text="Requested"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:padding="6dp"
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCommunity1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvRequestCommunityText"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/colorWhite">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            app:cardCornerRadius="12dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/community_created"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl25Community1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.30"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl80Community1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.68"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1"
+                            android:text="Community 1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:textColor="#0E0E0E"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community1"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community1"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Desc"
+                            android:text="Lorem ipsum dolor sit amet, con sectetur adipiscing eli."
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity1"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community1"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community1"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Members"
+                            android:text="123 Members"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            android:layout_marginTop="12dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity1Desc"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community1"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community1"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1CancelRequest"
+                            android:text="Cancel Request"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginStart="6dp"
+                            android:textColor="@color/buttonColor"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl80Community1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clJoinOtherCommunity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintTop_toBottomOf="@+id/clRequestedCommunity"
+                    app:layout_constraintLeft_toRightOf="@+id/gl4Community"
+                    app:layout_constraintRight_toLeftOf="@+id/gl96Community">
+
+                    <TextView
+                        android:id="@+id/tvJoinOtherCommunity"
+                        android:text="Suggested for you"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:padding="6dp"
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCommunity2"
+                        android:layout_width="0dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tvJoinOtherCommunity"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/colorWhite">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            app:cardCornerRadius="12dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/community_created"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl25Community2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.30"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl80Community2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.68"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity2"
+                            android:text="Community 2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:textColor="#0E0E0E"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community2"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community2"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Desc2"
+                            android:text="Lorem ipsum dolor sit amet, con sectetur adipiscing eli."
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity2"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community2"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community2"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Members2"
+                            android:text="123 Members"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            android:layout_marginTop="12dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity1Desc2"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community2"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community2"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Join2"
+                            android:text="Join"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_marginStart="6dp"
+                            android:textColor="@color/buttonColor"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl80Community2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCommunity3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:padding="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/clCommunity2"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/colorWhite">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            app:cardCornerRadius="12dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/community_created"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl25Community3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.30"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl80Community3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.68"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity3"
+                            android:text="Community 3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:textColor="#0E0E0E"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community3"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community3"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Desc3"
+                            android:text="Lorem ipsum dolor sit amet, con sectetur adipiscing eli."
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity3"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community3"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community3"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Members3"
+                            android:text="123 Members"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            android:layout_marginTop="12dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity1Desc3"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community3"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community3"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity3Join"
+                            android:text="Join"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_marginStart="6dp"
+                            android:textColor="@color/buttonColor"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl80Community3"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCommunity4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:padding="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/clCommunity3"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/colorWhite">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            app:cardCornerRadius="12dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/community_created"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl25Community4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.30"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl80Community4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.68"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity4"
+                            android:text="Community 4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:textColor="#0E0E0E"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community4"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community4"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Desc4"
+                            android:text="Lorem ipsum dolor sit amet, con sectetur adipiscing eli."
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity4"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community4"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community4"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Members4"
+                            android:text="123 Members"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#858585"
+                            android:layout_marginTop="12dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCommunity1Desc4"
+                            app:layout_constraintLeft_toRightOf="@+id/gl25Community4"
+                            app:layout_constraintRight_toLeftOf="@+id/gl80Community4"/>
+
+                        <TextView
+                            android:id="@+id/tvCommunity1Join4"
+                            android:text="Join"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_marginStart="6dp"
+                            android:textColor="@color/buttonColor"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/gl80Community4"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -242,7 +242,23 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
             actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
             actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
-        } else if (destination.id == R.id.rateOurApp) {
+        } else if (destination.id == R.id.eventHostedView) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        } else if (destination.id == R.id.myCommunity) {
+            actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
+            actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbar.clToolbarWithSearch.visibility = View.GONE
+            actHomeBinding.includedCustomToolbarWithouSearch.tvCustomTitleWithNavigation.text = destination.label
+            actHomeBinding.includedCustomToolbarWithouSearch.imgHomeNotification.visibility = View.VISIBLE
+            actHomeBinding.includedCustomToolbarWithouSearch.imgNotificationSetting.visibility = View.GONE
+        }else if (destination.id == R.id.rateOurApp) {
             actHomeBinding.includedCustomToolbarWithouSearch.clToolbarWithoutSearch.visibility = View.VISIBLE
             actHomeBinding.includedCustomToolbar.tvCustomToolbarTitle.visibility = View.GONE
             actHomeBinding.includedCustomToolbar.tvCustomTitleWithNavigation.visibility = View.VISIBLE
@@ -349,6 +365,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             }
 
             actHomeBinding.includedCustomNavView.tvDrawerCommunity -> {
+                navController.navigate(R.id.myCommunity)
                 actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
             }
 
@@ -358,6 +375,7 @@ class HomeActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             }
 
             actHomeBinding.includedCustomNavView.tvDrawerEvent -> {
+                navController.navigate(R.id.eventHostedView)
                 actHomeBinding.mainDrawerLayout.closeDrawer(GravityCompat.START)
             }
 

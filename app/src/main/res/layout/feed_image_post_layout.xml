@@ -59,6 +59,7 @@
                     app:layout_constraintRight_toRightOf="parent"/>
 
                 <ImageView
+                    android:id="@+id/imgMoreOptionImageHolder"
                     android:src="@drawable/ic_more_member"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

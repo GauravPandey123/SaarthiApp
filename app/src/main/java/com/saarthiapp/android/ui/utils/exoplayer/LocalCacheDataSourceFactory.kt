@@ -13,7 +13,6 @@ import java.io.File
 class LocalCacheDataSourceFactory(private val context: Context) : DataSource.Factory {
 
     private val defaultDataSourceFactory: DefaultDataSourceFactory
-    //TODO Needs to be a singleton
     private val simpleCache: SimpleCache = SimpleCache(
         File(context.cacheDir, "media"),
         LeastRecentlyUsedCacheEvictor(MAX_CACHE_SIZE)

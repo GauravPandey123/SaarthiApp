@@ -10,13 +10,14 @@ import com.saarthiapp.android.databinding.FeedImagePostLayoutBinding
 import com.saarthiapp.android.databinding.FeedVideoPostLayoutBinding
 import com.saarthiapp.android.model.feed.FeedPost
 
-class FeedPostAdapter(val mCtx:Context, val feedPostList:ArrayList<FeedPost>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedPostAdapter(val mCtx:Context,
+                      val feedPostList:ArrayList<FeedPost>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val TYPE_IMAGE = 0
     private val TYPE_VIDEO = 1
 
     override fun getItemViewType(position: Int): Int {
-
         if(feedPostList[position].type.equals("image", true)){
             return TYPE_IMAGE
         }else{
@@ -35,7 +36,7 @@ class FeedPostAdapter(val mCtx:Context, val feedPostList:ArrayList<FeedPost>) : 
             else -> {
                 val videoFeedBinding:FeedVideoPostLayoutBinding = DataBindingUtil.inflate(
                     LayoutInflater.from(mCtx), R.layout.feed_video_post_layout, parent, false)
-                return RVVideoViewHolder(videoFeedBinding)
+                return RVVideoViewHolder(mCtx, videoFeedBinding)
             }
         }
     }
@@ -45,11 +46,25 @@ class FeedPostAdapter(val mCtx:Context, val feedPostList:ArrayList<FeedPost>) : 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
         if(getItemViewType(position) == TYPE_IMAGE){
             (holder as RVImageViewHolder).bindData(feedPostList[position])
         }else{
             (holder as RVVideoViewHolder).bindVideoData(feedPostList[position])
         }
+    }
+
+    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+
+        val position = holder.adapterPosition
+        if(getItemViewType(position) == TYPE_IMAGE){
+            (holder as RVImageViewHolder).bindData(feedPostList[position])
+        }else{
+            (holder as RVVideoViewHolder).bindVideoData(feedPostList[position])
+        }
+        /*if (feedPostList.get(position) != null) {
+            feedPostList.get(position).getPlayer().release();
+        }*/
+
+        super.onViewRecycled(holder)
     }
 }

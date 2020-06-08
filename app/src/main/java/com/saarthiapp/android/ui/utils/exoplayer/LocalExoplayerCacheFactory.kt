@@ -1,6 +1,5 @@
 package com.saarthiapp.android.ui.utils.exoplayer
 
-import android.R
 import android.content.Context
 import com.google.android.exoplayer2.upstream.*
 import com.google.android.exoplayer2.upstream.cache.CacheDataSink
@@ -8,6 +7,7 @@ import com.google.android.exoplayer2.upstream.cache.CacheDataSource
 import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor
 import com.google.android.exoplayer2.upstream.cache.SimpleCache
 import com.google.android.exoplayer2.util.Util
+import com.saarthiapp.android.R
 import java.io.File
 
 
@@ -21,7 +21,7 @@ class LocalExoplayerCacheFactory(private val context: Context,
 
     ) {
         val userAgent: String =
-            Util.getUserAgent(context, context.resources.getString(R.string.VideoView_error_button))
+            Util.getUserAgent(context, context.resources.getString(R.string.app_name))
         val bandwidthMeter = DefaultBandwidthMeter()
         defaultDatasourceFactory = DefaultDataSourceFactory(
             this.context,
